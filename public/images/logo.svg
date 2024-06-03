@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1667.2 531.8"
+	style="enable-background:new 0 0 1667.2 531.8;" xml:space="preserve">
+    <style type="text/css">
+        .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#ED7624;}
+        .st1{fill:#ED1C24;}
+        .st2{font-family:'Montserrat-BlackItalic';}
+        .st3{font-size:326.0984px;}
+        .st4{fill:#ED7624;}
+        .st5{font-size:149.6245px;}
+        .st6{fill-rule:evenodd;clip-rule:evenodd;fill:none;}
+    </style>
+    <g>
+        <path class="st0" d="M392.3,76c-7.9,5.9-15.4,12.3-22.6,19.1l319.5,0.2c-5.4-7-11.4-13.5-17.8-19.6L392.3,76L392.3,76L392.3,76z"/>
+        <path class="st0" d="M392.3,76c-7.9,5.9-15.4,12.3-22.6,19.1l319.5,0.2c-5.4-7-11.4-13.5-17.8-19.6L392.3,76L392.3,76L392.3,76z"/>
+	<path class="st0" d="M327.2,146.7c4.1-6.5,8.4-12.8,13.1-18.8l369-0.3c3,6.2,5.6,12.5,7.9,19.1L327.2,146.7L327.2,146.7
+		L327.2,146.7z"/>
+	<path class="st0" d="M570.7,439.6c-29.1,12.4-60.4,19.3-92.4,19.3s-61-6.8-86.4-19.1L570.7,439.6L570.7,439.6L570.7,439.6z"/>
+	<path class="st0" d="M650.6,386.2c-6.9,6.7-14.1,13-21.7,18.9H342.8c-6-6-11.6-12.4-16.6-19.2L650.6,386.2L650.6,386.2L650.6,386.2
+		z"/>
+	<path class="st0" d="M691.6,335.3c-4,6.5-8.3,12.7-12.8,18.8l-371.6,0c-2.9-6.2-5.4-12.5-7.6-19.1L691.6,335.3L691.6,335.3
+		L691.6,335.3z"/>
+	<path class="st0" d="M716.2,282.6c-2.2,6.6-4.7,13.1-7.4,19.5l-417.2-1.1c-0.9-6.1-1.4-12.3-1.8-18.5L716.2,282.6L716.2,282.6
+		L716.2,282.6z"/>
+	<path class="st0" d="M727,231.8c-0.3,3.4-0.7,6.8-1.2,10.2c-0.4,3-0.9,6-1.4,9l-433.6,0c0.3-3,0.7-6,1.1-9c0.5-3.5,1-6.9,1.7-10.3
+		L727,231.8L727,231.8L727,231.8z"/>
+	<path class="st0" d="M725.2,178.5c1,6.3,1.8,12.8,2.2,19.3l-425,0.1c2.3-6.5,4.8-12.9,7.6-19.2L725.2,178.5L725.2,178.5
+		L725.2,178.5z"/>
+	<path class="st0" d="M625.6,44c-25.4-12.2-54.6-19-86.3-19c-31.7,0-62.7,6.8-91.5,19L625.6,44L625.6,44z"/>
+    </g>
+    <text transform="matrix(1 0 0 1 740.4263 346.353)" class="st1 st2 st3">RTAL</text>
+    <text transform="matrix(1 0 0 1 717.1289 474.5883)" class="st4 st2 st5">P3MI</text>
+    <g>
+        <text transform="matrix(1 0 0 1 29.0981 354.1205)" class="st1 st2 st3">P</text>
+    </g>
+    <rect class="st6" width="1667.2" height="531.8"/>
+</svg>
