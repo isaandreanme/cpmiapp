@@ -535,9 +535,9 @@
     <div class="box1">
         <p class="text-gray-700 text-sm p-2 font-bold uppercase">
             @if ($record->kantor_id)
-            CABANG : {{ App\Models\Kantor::find($record->kantor_id)->nama ?? 'Tidak ditemukan' }}
+            BRANCH OFFICE : {{ App\Models\Kantor::find($record->kantor_id)->nama ?? 'Tidak ditemukan' }}
             @else
-            CABANG : Data Tidak Ditemukan
+            BRANCH OFFICE : Data Tidak Ditemukan
             @endif
         </p>
         <p class="text-gray-700 text-sm p-2 font-bold uppercase">
