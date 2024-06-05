@@ -18,4 +18,6 @@ class ListBiodatas extends ListRecords
                 ->label('BIODATA BARU +'),
         ];
     }
+    protected ?string $heading = 'BIODATA';
+    protected ?string $subheading = 'List BIODATA';
 }

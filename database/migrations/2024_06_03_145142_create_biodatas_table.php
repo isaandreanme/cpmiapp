@@ -70,6 +70,16 @@ class CreateBiodatasTable extends Migration
             // $table->text('alasan_selesai')->nullable();
             // $table->text('keterangan')->nullable();
 
+            $table->unsignedBigInteger('tujuan_id')->nullable();
+            $table->unsignedBigInteger('kantor_id')->nullable();
+            $table->unsignedBigInteger('marketing_id')->nullable();
+            $table->unsignedBigInteger('agency_id')->nullable();
+            $table->unsignedBigInteger('pengalaman_id')->nullable();
+            $table->enum('dapatjob', ['YES', 'NO'])->nullable();
+
+
+
+
 
             // $table->enum('pengalaman')->nullable(); // Kolom untuk menyimpan pengalaman kerja sebelumnya
 

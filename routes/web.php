@@ -28,6 +28,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\DownloadPdfController;
 use App\Http\Controllers\BIODATAController;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
+
+
 
 
 Route::get('/', function () {
@@ -48,10 +53,15 @@ Route::get('/data-pmi/{record}', [DownloadPdfController::class, 'download'])
     ->name('data-pmi.download')
     ->middleware('auth');  // Enforce authentication for this route
 
+//----------------------------------------------------------------
+
 Route::get('/{record}/pdf/download', [BIODATAController::class, 'download'])
     ->name('biodata.pdf.download')
     ->middleware('auth');  // Enforce authentication for this route
 
-Route::get('/data-pmi/{record}', [BIODATAController::class, 'download'])
-    ->name('biodata-pmi.download')
+Route::get('/biodata/{record}', [BIODATAController::class, 'download'])
+    ->name('biodata.download')
     ->middleware('auth');  // Enforce authentication for this route
+
+//----------------------------------------------------------------
+Route::get('/biodata/foto/{filename}', 'BiodataController@showPhoto')->name('biodata.photo');

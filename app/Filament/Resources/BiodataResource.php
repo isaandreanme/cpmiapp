@@ -44,15 +44,55 @@ class BiodataResource extends Resource
     // protected static ?string $activeNavigationIcon = 'heroicon-m-cursor-arrow-ripple';
     // protected static ?string $navigationGroup = 'CPMI';
     protected static ?string $navigationLabel = 'BIODATA';
-    // public static function getNavigationBadge(): ?string
-    // {
-    //     return static::getModel()::count();
-    // }
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
+
+                Section::make('INPUT')
+                    ->description('INPUT DATA BIODATA')
+                    ->schema([
+                        Select::make('tujuan_id',)
+                            ->relationship('Tujuan', 'nama')
+                            ->required()
+                            ->placeholder('Pilih Negara Tujuan')
+                            ->label('Negara Tujuan'),
+                        Select::make('pengalaman_id',)
+                            ->relationship('Pengalaman', 'nama')
+                            ->required()
+                            ->placeholder('Pilih Pengalaman')
+                            ->label('Pengalaman CPMI'),
+                        Select::make('kantor_id',)
+                            ->relationship('Kantor', 'nama')
+                            ->required()
+                            ->placeholder('Pilih Kantor Cabang')
+                            ->label('Kantor Cabang'),
+                        Select::make('marketing_id',)
+                            ->relationship('Marketing', 'nama')
+                            ->required()
+                            ->placeholder('Pilih Marketing')
+                            ->label('Markerting'),
+                        Select::make('agency_id',)
+                            ->relationship('Agency', 'nama')
+                            ->required()
+                            ->placeholder('Pilih Agency')
+                            ->label('Agency'),
+                        Radio::make('dapatjob')
+                            ->options([
+                                'YES' => 'YES',
+                                'NO' => 'NO',
+                            ])
+                            ->inline()
+                            ->inlineLabel(false)
+                            ->label('Dapat Job'),
+                    ])->columns(3),
+                //----------------------------------------------------------------
+
                 Section::make('印尼傭工個人資料及工作簡介')
                     ->description('APPLICANT’S QUALIFICATION HIGHLIGHTS')
                     ->schema([

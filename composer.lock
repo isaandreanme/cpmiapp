@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d7ef6240eb4603182caf4e278e8cad8d",
+    "content-hash": "b16fa3909baf4067e71642b645be96cf",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -3095,6 +3095,69 @@
                 "source": "https://github.com/jeffgreco13/filament-breezy/tree/v2.2.1.1"
             },
             "time": "2023-12-05T16:20:52+00:00"
+        },
+        {
+            "name": "jenssegers/blade",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jenssegers/blade.git",
+                "reference": "7a31d61a6b1fe9cae5c61349dba435498dd8097c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jenssegers/blade/zipball/7a31d61a6b1fe9cae5c61349dba435498dd8097c",
+                "reference": "7a31d61a6b1fe9cae5c61349dba435498dd8097c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^9.0|^10.0|^11.0",
+                "illuminate/view": "^9.0|^10.0|^11.0",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.13",
+                "phpunit/phpunit": "^10.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jenssegers\\Blade\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "https://jenssegers.com"
+                }
+            ],
+            "description": "The standalone version of Laravel's Blade templating engine for use outside of Laravel.",
+            "keywords": [
+                "blade",
+                "laravel",
+                "render",
+                "template",
+                "view"
+            ],
+            "support": {
+                "issues": "https://github.com/jenssegers/blade/issues",
+                "source": "https://github.com/jenssegers/blade/tree/v2.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/jenssegers",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/jenssegers-blade",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2024-03-16T21:41:52+00:00"
         },
         {
             "name": "kenepa/multi-widget",

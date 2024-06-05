@@ -44,7 +44,7 @@ class AdminPanelProvider extends PanelProvider
             ->topNavigation()
             ->breadcrumbs(false)
             // ->maxContentWidth(MaxWidth::Full)
-            // ->sidebarFullyCollapsibleOnDesktop()
+            ->sidebarFullyCollapsibleOnDesktop()
             ->databaseNotifications()
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->brandLogo(asset('images/logo-fds.svg'))

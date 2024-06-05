@@ -17,4 +17,8 @@ class Marketing extends Model
     {
         return $this->hasMany(Pendaftaran::class);
     }
+    public function Biodata()
+    {
+        return $this->hasMany(Biodata::class);
+    }
 }
