@@ -32,6 +32,8 @@ use lockscreen\FilamentLockscreen\Lockscreen;
 use Njxqlus\FilamentProgressbar\FilamentProgressbarPlugin;
 use Swis\Filament\Backgrounds\FilamentBackgroundsPlugin;
 use Swis\Filament\Backgrounds\ImageProviders\MyImages;
+use Filament\Support\Enums\MaxWidth;
+
 
 
 class AdminPanelProvider extends PanelProvider
@@ -41,6 +43,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel 
             ->topNavigation()
             ->breadcrumbs(false)
+            // ->maxContentWidth(MaxWidth::Full)
             // ->sidebarFullyCollapsibleOnDesktop()
             ->databaseNotifications()
             ->viteTheme('resources/css/filament/admin/theme.css')

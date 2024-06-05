@@ -10,6 +10,7 @@ class BIODATAController extends Controller
 {
     public function download(Biodata $record)
     {
+        // dd($record);
         return view('biodata', compact('record'));
     }
 }

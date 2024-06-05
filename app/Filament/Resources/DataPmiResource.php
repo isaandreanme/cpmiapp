@@ -48,6 +48,7 @@ use Filament\Tables\Columns\IconColumn;
 
 
 
+
 class DataPmiResource extends Resource
 {
     protected static ?string $model = DataPmi::class;
@@ -493,7 +494,7 @@ class DataPmiResource extends Resource
                     ->copyable()
                     ->copyMessage('Salin Berhasil')
                     ->copyMessageDuration(1500),
-                    // ->toggleable(isToggledHiddenByDefault: true),
+                // ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('Pendaftaran.created_at')->label('TGL DAFTAR')->color('warning')
                     ->date()
                     ->sortable()
@@ -598,30 +599,25 @@ class DataPmiResource extends Resource
                 // TextColumn::make('id')->searchable()->alignment('left')->label('NOMOR DATA PMI')->prefix('NOMOR DATA PMI : '),
             ])->defaultSort('updated_at', 'desc')
 
+
             ->filters([
                 DateRangeFilter::make('created_at')
-                    ->label('PENDAFTARAN')
-                    ->timezone('UTC +7'),
+                    ->label('PENDAFTARAN'),
 
                 DateRangeFilter::make('tanggal_pra_medical')
-                    ->label('TANGGAL PRA MEDICAL')
-                    ->timezone('UTC +7'),
+                    ->label('TANGGAL PRA MEDICAL'),
 
                 DateRangeFilter::make('tanggal_ujk')
-                    ->label('TANGGAL UJK')
-                    ->timezone('UTC +7'),
+                    ->label('TANGGAL UJK'),
 
                 DateRangeFilter::make('tglsiapkerja')
-                    ->label('TANGGAL SIAPKERJA')
-                    ->timezone('UTC +7'),
+                    ->label('TANGGAL SIAPKERJA'),
 
                 DateRangeFilter::make('tanggal_job')
-                    ->label('TANGGAL JOB')
-                    ->timezone('UTC +7'),
+                    ->label('TANGGAL JOB'),
 
                 DateRangeFilter::make('tanggal_terbang')
-                    ->label('TANGGAL PENERBANGAN')
-                    ->timezone('UTC +7'),
+                    ->label('TANGGAL PENERBANGAN'),
 
                 // -------------------------------------BATAS
                 SelectFilter::make('Status')->relationship('Status', 'nama')->label('STATUS')

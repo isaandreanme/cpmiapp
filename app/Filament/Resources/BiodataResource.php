@@ -58,7 +58,7 @@ class BiodataResource extends Resource
                     ->schema([
                         FileUpload::make('foto')->label('Upload FOTO')
                             ->disk('public')
-                            ->directory('pendaftaran/foto')
+                            ->directory('biodata/foto')
                             ->preserveFilenames()
                             ->loadingIndicatorPosition('right')
                             ->removeUploadedFileButtonPosition('right')

@@ -27,6 +27,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\DownloadPdfController;
+use App\Http\Controllers\BIODATAController;
+
 
 Route::get('/', function () {
     return Redirect::guest('admin');
@@ -46,6 +48,10 @@ Route::get('/data-pmi/{record}', [DownloadPdfController::class, 'download'])
     ->name('data-pmi.download')
     ->middleware('auth');  // Enforce authentication for this route
 
-Route::get('download',function(){
-    return 'Biodata';
-})->name('biodata.pdf');
+Route::get('/{record}/pdf/download', [BIODATAController::class, 'download'])
+    ->name('biodata.pdf.download')
+    ->middleware('auth');  // Enforce authentication for this route
+
+Route::get('/data-pmi/{record}', [BIODATAController::class, 'download'])
+    ->name('biodata-pmi.download')
+    ->middleware('auth');  // Enforce authentication for this route

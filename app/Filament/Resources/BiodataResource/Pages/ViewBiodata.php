@@ -4,6 +4,7 @@ namespace App\Filament\Resources\BiodataResource\Pages;
 
 use App\Filament\Resources\BiodataResource;
 use Filament\Actions;
+use App\Models\Biodata;
 use Filament\Resources\Pages\ViewRecord;
 use Filament\Infolists\Components\Grid;
 use Filament\Infolists\Components\ImageEntry;
@@ -26,11 +27,12 @@ class ViewBiodata extends ViewRecord
             Action::make('Download Pdf')
                 ->label('Cetak')
                 ->icon('heroicon-o-printer')
-                ->url(fn() => route('biodata.pdf'))
+                ->url(fn (Biodata $record) => route('biodata.pdf.download', $record))
+                // ->url(fn() => route('biodata.pdf'))
                 ->openUrlInNewTab(),
         ];
     }
-    
+
 
     public function infolist(Infolist $infolist): Infolist
     {
@@ -101,7 +103,14 @@ class ViewBiodata extends ViewRecord
                                     TextEntry::make('spokenenglish')->label('能操英語 Spoken English'),
                                     TextEntry::make('spokencantonese')->label('能操廣東話 Spoken Cantonese'),
                                     TextEntry::make('spokenmandarin')->label('能操國語 Spoken Mandarin'),
+                                    ComponentsSection::make('PETS')
+                                        ->description('')
+                                        ->schema([
+                                            TextEntry::make('afraidofdog')->label('怕狗 Afraid of Dog'),
+                                            TextEntry::make('caringdog')->label('經驗照顧狗 Exp. Caring for Dogs'),
+                                        ])->columns(2),
                                 ])->columns(2),
+
 
                         ]),
                         ComponentsSection::make('PREVIOUS EMPLOYMENT HISTORY 以往僱員工作紀錄')
