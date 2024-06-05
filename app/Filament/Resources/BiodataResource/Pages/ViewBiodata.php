@@ -26,7 +26,7 @@ class ViewBiodata extends ViewRecord
             Action::make('Download Pdf')
                 ->label('Cetak')
                 ->icon('heroicon-o-printer')
-                // ->url(fn (DataPmi $record) => route('datapmi.pdf.download', $record))
+                ->url(fn() => route('biodata.pdf'))
                 ->openUrlInNewTab(),
         ];
     }

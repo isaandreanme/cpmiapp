@@ -14,6 +14,7 @@
         "awcodes/light-switch": "^1.0",
         "aymanalhattami/filament-slim-scrollbar": "^2.0",
         "azishapidin/indoregion": "^3.0",
+        "barryvdh/laravel-dompdf": "^2.2",
         "bezhansalleh/filament-shield": "^3.1",
         "filament/filament": "v3.2.2",
         "guzzlehttp/guzzle": "^7.2",

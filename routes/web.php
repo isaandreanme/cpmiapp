@@ -46,3 +46,6 @@ Route::get('/data-pmi/{record}', [DownloadPdfController::class, 'download'])
     ->name('data-pmi.download')
     ->middleware('auth');  // Enforce authentication for this route
 
+Route::get('download',function(){
+    return 'Biodata';
+})->name('biodata.pdf');
