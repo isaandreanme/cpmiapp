@@ -1,0 +1,10 @@
+cp .env.example .env
+php artisan key:generate
+composer install
+npm install
+npm run build
+php artisan migrate
+php artisan migrate:fresh --seed
+php artisan shield:install
+php artisan optimize:clear
+php artisan serve
