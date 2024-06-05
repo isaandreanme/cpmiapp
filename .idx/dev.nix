@@ -9,11 +9,12 @@
     "svelte.svelte-vscode"
     "vue.volar"
   ];
-  env = {};
-  services.mysql = {
+   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
   };
+  env = {};
+ 
   idx.previews = {
     previews = {
       web = {

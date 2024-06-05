@@ -5,6 +5,8 @@ namespace App\Filament\Resources\BiodataResource\Pages;
 use App\Filament\Resources\BiodataResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Contracts\View\View;
+
 
 class ListBiodatas extends ListRecords
 {
@@ -20,4 +22,8 @@ class ListBiodatas extends ListRecords
     }
     protected ?string $heading = 'BIODATA';
     protected ?string $subheading = 'List BIODATA';
+    public function getFooter(): ?View
+    {
+        return view('filament.settings.custom-footer');
+    }
 }
