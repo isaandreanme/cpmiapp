@@ -431,7 +431,7 @@ class PendaftaranResource extends Resource
 
             ])->defaultSort('created_at', 'desc')
             ->filters([
-                DateRangeFilter::make('created_at')
+                DateRangeFilter::make('created_at')->timezone('UTC')
                     ->label('Tanggal Daftar'),
 
                 SelectFilter::make('Kantor')->relationship('Kantor', 'nama'),

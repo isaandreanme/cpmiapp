@@ -27,7 +27,7 @@
         "laravel/tinker": "^2.8",
         "laraveldaily/laravel-invoices": "^3.2",
         "leandrocfe/filament-apex-charts": "3.0",
-        "malzariey/filament-daterangepicker-filter": "^2.3",
+        "malzariey/filament-daterangepicker-filter": "2.3.0",
         "marjose123/filament-lockscreen": "2.0",
         "njxqlus/filament-progressbar": "^1.0",
         "psr/simple-cache": "2.0",

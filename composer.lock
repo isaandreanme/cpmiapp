@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b16fa3909baf4067e71642b645be96cf",
+    "content-hash": "71cb785af3fed75afbe84e3299ca5b89",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -4749,23 +4749,31 @@
         },
         {
             "name": "malzariey/filament-daterangepicker-filter",
-            "version": "2.6.2",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/malzariey/filament-daterangepicker-filter.git",
-                "reference": "86980462c3a96049b97701604835a2f0cda8e159"
+                "reference": "e3fc5a2f7df6b0285c1cbed5a374285011f081f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/malzariey/filament-daterangepicker-filter/zipball/86980462c3a96049b97701604835a2f0cda8e159",
-                "reference": "86980462c3a96049b97701604835a2f0cda8e159",
+                "url": "https://api.github.com/repos/malzariey/filament-daterangepicker-filter/zipball/e3fc5a2f7df6b0285c1cbed5a374285011f081f6",
+                "reference": "e3fc5a2f7df6b0285c1cbed5a374285011f081f6",
                 "shasum": ""
             },
             "require": {
                 "filament/filament": "^2.0|^3.0",
-                "illuminate/contracts": "^8.0|^9.0|^10.0|^11.0",
+                "illuminate/contracts": "^8.0|^9.0|^10.0",
                 "php": "^8.0",
-                "spatie/laravel-package-tools": "^1.16.4"
+                "spatie/laravel-package-tools": "^1.15"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^7.0.0",
+                "pestphp/pest": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.1",
+                "pestphp/pest-plugin-livewire": "^2.0",
+                "phpunit/phpunit": "^10.0.0",
+                "spatie/laravel-ray": "^1.26"
             },
             "type": "library",
             "extra": {
@@ -4804,7 +4812,7 @@
             ],
             "support": {
                 "issues": "https://github.com/malzariey/filament-daterangepicker-filter/issues",
-                "source": "https://github.com/malzariey/filament-daterangepicker-filter/tree/2.6.2"
+                "source": "https://github.com/malzariey/filament-daterangepicker-filter/tree/2.3.0"
             },
             "funding": [
                 {
@@ -4812,7 +4820,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-17T14:31:06+00:00"
+            "time": "2023-10-24T12:52:25+00:00"
         },
         {
             "name": "marjose123/filament-lockscreen",
@@ -5166,16 +5174,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.72.3",
+            "version": "2.72.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "0c6fd108360c562f6e4fd1dedb8233b423e91c83"
+                "reference": "afd46589c216118ecd48ff2b95d77596af1e57ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/0c6fd108360c562f6e4fd1dedb8233b423e91c83",
-                "reference": "0c6fd108360c562f6e4fd1dedb8233b423e91c83",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/afd46589c216118ecd48ff2b95d77596af1e57ed",
+                "reference": "afd46589c216118ecd48ff2b95d77596af1e57ed",
                 "shasum": ""
             },
             "require": {
@@ -5209,8 +5217,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-3.x": "3.x-dev",
-                    "dev-master": "2.x-dev"
+                    "dev-master": "3.x-dev",
+                    "dev-2.x": "2.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -5269,7 +5277,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-25T10:35:09+00:00"
+            "time": "2024-06-03T19:18:41+00:00"
         },
         {
             "name": "nette/schema",
@@ -7596,16 +7604,16 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v7.1.0",
+            "version": "v7.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "843f2f7ac5e4c5bf0ec77daef23ca6d4d8922adc"
+                "reference": "1c7cee86c6f812896af54434f8ce29c8d94f9ff4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/843f2f7ac5e4c5bf0ec77daef23ca6d4d8922adc",
-                "reference": "843f2f7ac5e4c5bf0ec77daef23ca6d4d8922adc",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/1c7cee86c6f812896af54434f8ce29c8d94f9ff4",
+                "reference": "1c7cee86c6f812896af54434f8ce29c8d94f9ff4",
                 "shasum": ""
             },
             "require": {
@@ -7641,7 +7649,7 @@
             "description": "Converts CSS selectors to XPath expressions",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/css-selector/tree/v7.1.0"
+                "source": "https://github.com/symfony/css-selector/tree/v7.1.1"
             },
             "funding": [
                 {
@@ -7657,7 +7665,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-18T09:32:20+00:00"
+            "time": "2024-05-31T14:57:53+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -7803,16 +7811,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v7.1.0",
+            "version": "v7.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "522d2772d6c7bab843b0c52466dc7844622bacc2"
+                "reference": "9fa7f7a21beb22a39a8f3f28618b29e50d7a55a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/522d2772d6c7bab843b0c52466dc7844622bacc2",
-                "reference": "522d2772d6c7bab843b0c52466dc7844622bacc2",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/9fa7f7a21beb22a39a8f3f28618b29e50d7a55a7",
+                "reference": "9fa7f7a21beb22a39a8f3f28618b29e50d7a55a7",
                 "shasum": ""
             },
             "require": {
@@ -7863,7 +7871,7 @@
             "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher/tree/v7.1.0"
+                "source": "https://github.com/symfony/event-dispatcher/tree/v7.1.1"
             },
             "funding": [
                 {
@@ -7879,7 +7887,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-18T09:32:20+00:00"
+            "time": "2024-05-31T14:57:53+00:00"
         },
         {
             "name": "symfony/event-dispatcher-contracts",
@@ -9386,16 +9394,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v7.1.0",
+            "version": "v7.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "6f41b185e742737917e6f2e3eca37767fba5f17a"
+                "reference": "60bc311c74e0af215101235aa6f471bcbc032df2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/6f41b185e742737917e6f2e3eca37767fba5f17a",
-                "reference": "6f41b185e742737917e6f2e3eca37767fba5f17a",
+                "url": "https://api.github.com/repos/symfony/string/zipball/60bc311c74e0af215101235aa6f471bcbc032df2",
+                "reference": "60bc311c74e0af215101235aa6f471bcbc032df2",
                 "shasum": ""
             },
             "require": {
@@ -9453,7 +9461,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v7.1.0"
+                "source": "https://github.com/symfony/string/tree/v7.1.1"
             },
             "funding": [
                 {
@@ -9469,7 +9477,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-17T10:55:18+00:00"
+            "time": "2024-06-04T06:40:14+00:00"
         },
         {
             "name": "symfony/translation",
@@ -12391,16 +12399,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v7.1.0",
+            "version": "v7.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "c5f718c94e3c37dd77b77484e6cf0b524b2d405e"
+                "reference": "fa34c77015aa6720469db7003567b9f772492bf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/c5f718c94e3c37dd77b77484e6cf0b524b2d405e",
-                "reference": "c5f718c94e3c37dd77b77484e6cf0b524b2d405e",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/fa34c77015aa6720469db7003567b9f772492bf2",
+                "reference": "fa34c77015aa6720469db7003567b9f772492bf2",
                 "shasum": ""
             },
             "require": {
@@ -12442,7 +12450,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v7.1.0"
+                "source": "https://github.com/symfony/yaml/tree/v7.1.1"
             },
             "funding": [
                 {
@@ -12458,7 +12466,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-28T18:29:00+00:00"
+            "time": "2024-05-31T14:57:53+00:00"
         },
         {
             "name": "theseer/tokenizer",

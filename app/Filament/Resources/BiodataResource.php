@@ -30,6 +30,10 @@ use Filament\Infolists\Infolist;
 use Filament\Support\Enums\FontWeight;
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\Layout\Split;
+use Filament\Tables\Filters\SelectFilter;
+use Malzariey\FilamentDaterangepickerFilter\Filters\DateRangeFilter;
+
+
 
 
 
@@ -433,17 +437,25 @@ class BiodataResource extends Resource
                 Split::make([
                     ImageColumn::make('foto')->label('Picture')->circular()->size(60),
                     Stack::make([
-                        TextColumn::make('nama')->label('Name 姓名')->sortable(),
-                        TextColumn::make('nomor_lamar')->label('Applicant’s No (僱傭編號)'),
+                        TextColumn::make('nama')->label('NAMA')->sortable(),
+                        TextColumn::make('nomor_lamar')->label('NOMOR BIODATA'),
                     ]),
-                    TextColumn::make('usia')->label('Age 年齡')->suffix(' YO')->sortable(),
-                    TextColumn::make('tanggal_lahir')->label('Date of birth 出身日期')->sortable(),
+                    TextColumn::make('usia')->label('USIA')->suffix(' YO')->sortable(),
+                    TextColumn::make('tanggal_lahir')->label('TANGGAL LAHIR')->sortable(),
+                    TextColumn::make('created_at')->label('DIBUAT PADA')->sortable(),
                 ]),
 
 
             ])
             ->filters([
-                //
+                DateRangeFilter::make('created_at')
+                    ->label('DIBUAT PADA'),
+                SelectFilter::make('Marketing')->relationship('Marketing', 'nama')->label('MARKETING'),
+                SelectFilter::make('Tujuan')->relationship('Tujuan', 'nama')->label('NEGARA'),
+                SelectFilter::make('Agency')->relationship('Agency', 'nama')->label('AGENCY'),
+                SelectFilter::make('Kantor')->relationship('Kantor', 'nama')->label('KANTOR'),
+                SelectFilter::make('Tujuan')->relationship('Tujuan', 'nama')->label('NEGARA'),
+                SelectFilter::make('Agency')->relationship('Agency', 'nama')->label('AGENCY'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
