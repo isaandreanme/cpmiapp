@@ -41,7 +41,7 @@ class EditBiodata extends EditRecord
 
             // Buat notifikasi dengan tombol "View"
             $notification = Notification::make()
-                ->title('PENDAFTARAN')
+                ->title('BIODATA')
                 // ->body('Data CPMI Berhasil Diubah')
                 ->body("<strong>{$data->nama}</strong> Berhasil Update
                 <br>
