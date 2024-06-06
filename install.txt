@@ -6,5 +6,6 @@ npm run build
 php artisan migrate
 php artisan migrate:fresh --seed
 php artisan shield:install
+php artisan storage:link
 php artisan optimize:clear
 php artisan serve
