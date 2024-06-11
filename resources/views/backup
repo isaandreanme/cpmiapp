@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -37,10 +37,14 @@
             text-align: center;
         }
 
+
+
         .box {
             border: 1px solid #ccc;
             padding: 10px;
             margin-bottom: 20px;
+            /* background-color: skyblue; */
+
         }
 
         .box1 {
@@ -48,14 +52,23 @@
             display: flex;
             gap: 10px;
             padding: 10px;
+            /* Add space between the items */
+            /* background-color: #87CEEB; */
+            /* Sky blue background color */
+            /* Add some padding */
+            /* border: 1px solid #000; */
+            /* Optional: Add border */
         }
 
         .box p {
             margin: 0;
             background-color: #f5f5f5;
+            /* Background color for paragraphs */
             padding: 5px 10px;
+            /* Padding for paragraphs */
             border-radius: 5px;
-            /* font-weight: bold; */
+            /* Rounded corners for paragraphs */
+            font-weight: bold;
             text-transform: uppercase;
         }
 
@@ -67,15 +80,27 @@
         .grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
+            /* Dua kolom dengan lebar yang sama */
             gap: 1rem;
+            /* Jarak antar elemen */
         }
 
+        /* CSS untuk kotak konten */
+        .box {
+            border: 1px solid #ccc;
+            /* Garis border */
+            padding: 1rem;
+            /* Padding di dalam kotak */
+        }
+
+        /* Flexible border wrapper */
         .border-wrapper {
             border: 0px solid #ccc;
             padding: 20px;
         }
 
         body {
+            /* background-image: url('/images/nip.png'); */
             background-size: 500px 500px;
             background-repeat: no-repeat;
             background-position: center;
@@ -86,33 +111,12 @@
         .image-container {
             display: flex;
             justify-content: center;
+            /* Adjust the height as needed */
         }
 
         .img {
             width: 50px;
             height: 50px;
-        }
-
-        @media print {
-            .box {
-                page-break-inside: avoid;
-            }
-
-            body {
-                /* margin-top: 10mm; Atur sesuai kebutuhan Anda */
-                margin: 0;
-                padding: 3;
-                border: none;
-            }
-
-            .border-wrapper {
-                padding: 0;
-            }
-
-            .box1 {
-                display: flex;
-                justify-content: space-between;
-            }
         }
     </style>
 </head>
@@ -135,6 +139,9 @@
         </div>
     </div>
 
+    <!-- ---------------------------------------------------------------->
+
+    <!-- New Section APPLICANTS INFORMATION SHEET 申請人資料 -->
     <div class="box">
         <h2 class="text-center mb-4 uppercase box-header">Applicants Information Sheet 申請人資料</h2>
         <div class="grid grid-cols-2 gap-4">
@@ -223,6 +230,7 @@
                 </table>
             </div>
 
+            <!-- ---------------------------------------------------------------- -->
             <div class="col-span-1">
                 <table class="w-full">
                     <tr>
@@ -309,8 +317,10 @@
             </div>
         </div>
     </div>
+    <!-- ---------------------------------------------------------------->
 
     <div class="grid grid-cols-2 gap-4">
+        <!-- New Section PHOTO -->
         <div class="box">
             @if ($record && $record->foto)
             <img class="rounded-lg w-full h-auto" src="/storage/{{ $record->foto }}">
@@ -318,8 +328,9 @@
             -
             @endif
 
+            <!-- New Section Remark -->
             <br>
-            <p class="text-gray-700 text-sm p-2 uppercase">
+            <p class=" text-gray-700 text-sm p-2 uppercase">
                 @if ($record && $record->remark)
                 REMARK : {{ $record->remark }}
                 @else
@@ -328,6 +339,8 @@
             </p>
         </div>
 
+
+        <!-- New Section Working Experience 工作經驗 -->
         <div class="box">
             <h2 class="text-center mb-4 uppercase box-header">Working Experience 工作經驗</h2>
 
@@ -350,6 +363,7 @@
                 'Gardening 打理花園' => $record->gardening ?? '-',
                 'Cooking 烹飪' => $record->cooking ?? '-',
                 'Driving 駕駛' => $record->driving ?? '-',
+
                 ] as $skill => $value)
                 <tr>
                     <td class="text-gray-700 text-sm p-2 uppercase left-align">{{ $skill }}</td>
@@ -370,6 +384,7 @@
                     <th class="text-gray-700 text-sm p-2 uppercase">POOR</th>
                     <th class="text-gray-700 text-sm p-2 uppercase">FAIR</th>
                     <th class="text-gray-700 text-sm p-2 uppercase">GOOD</th>
+                    <!-- <th class="text-gray-700 text-sm p-2 uppercase">VERY GOOD</th> -->
                 </tr>
                 @foreach ([
                 '能操英語 Spoken English' => $record->spokenenglish ?? '-',
@@ -393,16 +408,26 @@
             <br>
         </div>
     </div>
+    <!-- ---------------------------------------------------------------->
+
+
     <br>
+
+    <!-- ---------------------------------------------------------------->
+
+    <!-- New Section PREVIOUS EMPLOYMENT HISTORY 以往僱員工作紀錄 -->
+
     <div class="box">
-        <h2 class="text-center mb-4 uppercase box-header">Previous Duties 過往工作</h2>
+        <h2 class="text-center mb-4 uppercase box-header">
+            Previous Duties 過往工作
+        </h2>
         <div class="text-gray-700 text-sm p-2 uppercase">
             @if ($record && isset($record['pengalaman']) && is_array($record['pengalaman']))
             @foreach ($record['pengalaman'] as $experience)
             <div class="experience-entry p-2 mb-2">
                 <div class="box">
                     <tr>
-                        <td class="text-gray-700 text-sm p-2 uppercase left-align" style="background-color: #f3f3f3;">Previous Duties 過往工作</td>
+                        <td class="text-gray-700 text-sm p-2 uppercase left-align" style="background-color: #f3f3f3;">Previous Duties 過往工作 </td>
                         <td class="text-gray-700 text-sm p-2 uppercase left-align">
                             : {{ $experience['nomorpengalaman'] ?? '-' }}
                         </td>
@@ -432,6 +457,8 @@
                                 </tr>
                             </table>
                         </div>
+
+                        <!-- ---------------------------------------------------------------- -->
 
                         <div class="col-span-1">
                             <table class="w-full">
@@ -523,8 +550,15 @@
         </div>
     </div>
 
+
+    <!-- ---------------------------------------------------------------->
+    <br>
+    <!-- ---------------------------------------------------------------->
+
+    <!-- New Section Other Question 其他問題 -->
     <div class="box">
-        <h2 class="text-center mb-4 uppercase box-header">Other Question 其他問題</h2>
+        <h2 class="text-center mb-4 uppercase box-header">
+            Other Question 其他問題</h2>
         <table class="w-full">
             <tr>
                 <th class="text-gray-700 text-sm p-2 uppercase left-align"></th>
@@ -539,6 +573,9 @@
             'Do you smoke? 你會抽煙嗎?' => $record->merokok ?? '-',
             'Do you drink alcohol? 你會喝酒嗎?' => $record->alkohol ?? '-',
             'Have you any prolonged illnesses / undergone surgery?你有任何長期的疾病/做過手術嗎?' => $record->pernahsakit ?? '-',
+
+
+
             ] as $skill => $value)
             <tr>
                 <td class="text-gray-700 text-sm p-2 uppercase left-align">{{ $skill }}</td>
@@ -564,8 +601,10 @@
                 </td>
             </tr>
         </table>
-    </div>
 
+
+    </div>
+    <!-- </div> -->
     <div style="text-align: center;">
         <p style="font-size: small;">
             Declaration by Applicant <br>
@@ -573,7 +612,7 @@
             “The applicant gives all information with No responsibility holding by our company.” “以上資料由申請者提供, 任何法律責任與本公司無關。”
         </p>
     </div>
-
+    <!-- New Section Marketing -->
     <div class="box1">
         <p class="text-gray-700 text-sm p-2 uppercase">
             @if ($record->kantor_id)
@@ -590,6 +629,9 @@
             @endif
         </p>
     </div>
+
+    </div>
+
 </body>
 
 </html>

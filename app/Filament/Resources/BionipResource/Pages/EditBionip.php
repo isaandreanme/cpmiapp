@@ -22,7 +22,7 @@ class EditBionip extends EditRecord
     }
     protected function getRedirectUrl(): string
     {
-        return $this->getResource()::getUrl('view', ['record' => $this->getRecord()]);
+        return $this->getResource()::getUrl('index', ['record' => $this->getRecord()]);
     }
 
     protected function getSavedNotification(): ?Notification
@@ -42,12 +42,10 @@ class EditBionip extends EditRecord
             // Buat notifikasi dengan tombol "View"
             $notification = Notification::make()
                 ->title('BIODATA')
-                // ->body('Data CPMI Berhasil Diubah')
                 ->body("<strong>{$data->nama}</strong> Berhasil Update
                 <br>
                 Oleh <strong>{$editorName}</strong>") 
                 ->actions([$viewButton]) // Tambahkan tombol "View" ke notifikasi
-                // ->send()
                 ->persistent()
                 ->success()
                 ->duration(1000)

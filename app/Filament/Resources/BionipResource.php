@@ -26,7 +26,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\Layout\Split;
-
+use Filament\Tables\Filters\SelectFilter;
 
 class BionipResource extends Resource
 {
@@ -36,7 +36,7 @@ class BionipResource extends Resource
     protected static ?int $navigationSort = 3;
     // protected static ?string $activeNavigationIcon = 'heroicon-m-cursor-arrow-ripple';
     // protected static ?string $navigationGroup = 'CPMI';
-    protected static ?string $navigationLabel = 'BIODATA NIP';
+    protected static ?string $navigationLabel = 'BIODATA';
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
@@ -59,7 +59,7 @@ class BionipResource extends Resource
                         Select::make('pengalaman_id',)
                             ->relationship('Pengalaman', 'nama')
                             ->required()
-                            ->placeholder('Pilih Pengalaman')
+                            ->placeholder('Pilih Pengalaman Terahir')
                             ->label('Pengalaman CPMI'),
                         Select::make('kantor_id',)
                             ->relationship('Kantor', 'nama')
@@ -118,17 +118,20 @@ class BionipResource extends Resource
                     ->schema([
                         Fieldset::make('')
                             ->schema([
-                                TextInput::make('nama'),
+                                TextInput::make('nama')->label('Nama'),
                                 Select::make('national')
+                                    ->label('Negara Asal')
                                     ->options([
                                         'INDONESIAN' => 'INDONESIAN',
                                     ]),
                                 Select::make('kelamin')
+                                    ->label('Jenis Kelamin')
                                     ->options([
                                         'FEMALE' => 'FEMALE',
                                         'MALE' => 'MALE',
                                     ]),
                                 Select::make('lulusan')
+                                    ->label('Pendidikan')
                                     ->options([
                                         'Elementary School' => 'Elementary School',
                                         'Junior High School' => 'Junior High School',
@@ -136,6 +139,7 @@ class BionipResource extends Resource
                                         'University' => 'University',
                                     ]),
                                 Select::make('agama')
+                                    ->label('Agama')
                                     ->options([
                                         'MOESLIM' => 'MOESLIM',
                                         'CRISTIAN' => 'CRISTIAN',
@@ -143,14 +147,17 @@ class BionipResource extends Resource
                                         'BOEDHA' => 'BOEDHA',
                                     ]),
                                 TextInput::make('anakke')
+                                    ->label('Anak Ke')
                                     ->numeric()
                                     ->minLength(1)
                                     ->maxLength(2),
                                 TextInput::make('brother')
+                                    ->label('Saudara Laki Laki')
                                     ->numeric()
                                     ->minLength(1)
                                     ->maxLength(2),
                                 TextInput::make('sister')
+                                    ->label('Saudara perempuan')
                                     ->numeric()
                                     ->minLength(1)
                                     ->maxLength(2),
@@ -159,12 +166,15 @@ class BionipResource extends Resource
                         Fieldset::make('')
                             ->schema([
                                 TextInput::make('usia')
+                                    ->label('Usia CPMI')
                                     ->numeric()
                                     ->minLength(1)
                                     ->maxLength(2)
                                     ->suffix(' YO'),
-                                DatePicker::make('tanggal_lahir'),
+                                DatePicker::make('tanggal_lahir')
+                                    ->label('Tanggal Lahir CPMI'),
                                 Select::make('status_nikah')
+                                    ->label('Setatus Pernikahan')
                                     ->options([
                                         'SINGLE' => 'SINGLE',
                                         'MARRIED' => 'MARRIED',
@@ -172,17 +182,21 @@ class BionipResource extends Resource
                                         'WIDOW' => 'WIDOW',
                                     ]),
                                 TextInput::make('tinggi_badan')
+                                    ->label('Tinggi Badan')
                                     ->numeric()
                                     ->minLength(1)
                                     ->maxLength(3)
                                     ->suffix(' CM'),
                                 TextInput::make('berat_badan')
+                                    ->label('Berat Badan')
                                     ->numeric()
                                     ->minLength(1)
                                     ->maxLength(2)
                                     ->suffix(' KG'),
-                                TextInput::make('son')->placeholder('CONTOH : 1 / 14 (YO)'),
-                                TextInput::make('daughter')->placeholder('CONTOH : 1 / 14 (YO)'),
+                                TextInput::make('son')->placeholder('CONTOH : 1 / 14 (YO)')
+                                    ->label('Anak Laki Laki'),
+                                TextInput::make('daughter')->placeholder('CONTOH : 1 / 14 (YO)')
+                                    ->label('Anak Perempuan'),
                             ]),
 
                     ])->columns(2),
@@ -192,6 +206,8 @@ class BionipResource extends Resource
                     ->description('工作經驗')
                     ->schema([
                         Radio::make('careofbabies')
+                            ->label('Merawat Bayi ?')
+                            ->default('NO')
                             ->options([
                                 'YES' => 'YES',
                                 'NO' => 'NO',
@@ -199,6 +215,8 @@ class BionipResource extends Resource
                             ->inline()
                             ->inlineLabel(false),
                         Radio::make('careoftoddler')
+                            ->label('Merawat Balita ?')
+                            ->default('NO')
                             ->options([
                                 'YES' => 'YES',
                                 'NO' => 'NO',
@@ -206,6 +224,8 @@ class BionipResource extends Resource
                             ->inline()
                             ->inlineLabel(false),
                         Radio::make('careofchildren')
+                            ->label('Merawat Anak ?')
+                            ->default('NO')
                             ->options([
                                 'YES' => 'YES',
                                 'NO' => 'NO',
@@ -213,6 +233,8 @@ class BionipResource extends Resource
                             ->inline()
                             ->inlineLabel(false),
                         Radio::make('careofelderly')
+                            ->label('Merawat Lansia ?')
+                            ->default('NO')
                             ->options([
                                 'YES' => 'YES',
                                 'NO' => 'NO',
@@ -220,6 +242,8 @@ class BionipResource extends Resource
                             ->inline()
                             ->inlineLabel(false),
                         Radio::make('careofdisabled')
+                            ->label('Merawat Penyandang Cacat ?')
+                            ->default('NO')
                             ->options([
                                 'YES' => 'YES',
                                 'NO' => 'NO',
@@ -227,6 +251,8 @@ class BionipResource extends Resource
                             ->inline()
                             ->inlineLabel(false),
                         Radio::make('careofbedridden')
+                            ->label('Merawat Penyandang Lumpuh ?')
+                            ->default('NO')
                             ->options([
                                 'YES' => 'YES',
                                 'NO' => 'NO',
@@ -234,6 +260,8 @@ class BionipResource extends Resource
                             ->inline()
                             ->inlineLabel(false),
                         Radio::make('careofpet')
+                            ->label('Merawat Hewan ?')
+                            ->default('NO')
                             ->options([
                                 'YES' => 'YES',
                                 'NO' => 'NO',
@@ -241,6 +269,8 @@ class BionipResource extends Resource
                             ->inline()
                             ->inlineLabel(false),
                         Radio::make('householdworks')
+                            ->label('Pekerjaan Rumah Tangga ?')
+                            ->default('NO')
                             ->options([
                                 'YES' => 'YES',
                                 'NO' => 'NO',
@@ -248,6 +278,8 @@ class BionipResource extends Resource
                             ->inline()
                             ->inlineLabel(false),
                         Radio::make('carwashing')
+                            ->label('Mencuci Mobil ?')
+                            ->default('NO')
                             ->options([
                                 'YES' => 'YES',
                                 'NO' => 'NO',
@@ -255,6 +287,8 @@ class BionipResource extends Resource
                             ->inline()
                             ->inlineLabel(false),
                         Radio::make('gardening')
+                            ->label('Berkebun ?')
+                            ->default('NO')
                             ->options([
                                 'YES' => 'YES',
                                 'NO' => 'NO',
@@ -262,6 +296,8 @@ class BionipResource extends Resource
                             ->inline()
                             ->inlineLabel(false),
                         Radio::make('cooking')
+                            ->label('Memasak ?')
+                            ->default('NO')
                             ->options([
                                 'YES' => 'YES',
                                 'NO' => 'NO',
@@ -269,6 +305,8 @@ class BionipResource extends Resource
                             ->inline()
                             ->inlineLabel(false),
                         Radio::make('driving')
+                            ->label('Menyetir Mobil ?')
+                            ->default('NO')
                             ->options([
                                 'YES' => 'YES',
                                 'NO' => 'NO',
@@ -282,14 +320,14 @@ class BionipResource extends Resource
                 Section::make('Overseas Experience')
                     ->description('海外工作經驗')
                     ->schema([
-                        TextInput::make('hongkong')->suffix(' Years'),
-                        TextInput::make('singapore')->suffix(' Years'),
-                        TextInput::make('taiwan')->suffix(' Years'),
-                        TextInput::make('malaysia')->suffix(' Years'),
-                        TextInput::make('macau')->suffix(' Years'),
-                        TextInput::make('middleeast')->suffix(' Years'),
-                        TextInput::make('other')->suffix(' Years'),
-                        TextInput::make('homecountry')->suffix(' Years'),
+                        TextInput::make('hongkong')->suffix(' Years')->label('Hong Kong'),
+                        TextInput::make('singapore')->suffix(' Years')->label('Singapore'),
+                        TextInput::make('taiwan')->suffix(' Years')->label('Taiwan'),
+                        TextInput::make('malaysia')->suffix(' Years')->label('Malaysia'),
+                        TextInput::make('macau')->suffix(' Years')->label('Macau'),
+                        TextInput::make('middleeast')->suffix(' Years')->label('Timur Tengah'),
+                        TextInput::make('other')->suffix(' Years')->label('Lainya'),
+                        TextInput::make('homecountry')->suffix(' Years')->label('Di Indonesia'),
                     ])->columns(4),
 
                 //---------------------------------------------------------------- Language Skills 語言能力
@@ -297,6 +335,7 @@ class BionipResource extends Resource
                     ->description('語言能力')
                     ->schema([
                         Radio::make('spokenenglish')
+                            ->label('Bahasa Inggris')
                             ->options([
                                 'POOR' => 'POOR',
                                 'FAIR' => 'FAIR',
@@ -305,6 +344,7 @@ class BionipResource extends Resource
                             ->inline()
                             ->inlineLabel(false),
                         Radio::make('spokencantonese')
+                            ->label('Bahasa Kantonis')
                             ->options([
                                 'POOR' => 'POOR',
                                 'FAIR' => 'FAIR',
@@ -313,6 +353,7 @@ class BionipResource extends Resource
                             ->inline()
                             ->inlineLabel(false),
                         Radio::make('spokenmandarin')
+                            ->label('Bahasa Mandarin')
                             ->options([
                                 'POOR' => 'POOR',
                                 'FAIR' => 'FAIR',
@@ -332,17 +373,20 @@ class BionipResource extends Resource
                 Section::make('Previous Duties')
                     ->description('過往工作')
                     ->schema([
-                        Repeater::make('pengalaman')
+                        Repeater::make('pengalaman')->label('Pengalaman')
                             ->schema([
-                                TextInput::make('negara'),
-                                TextInput::make('gaji'),
-                                TextInput::make('jumlahorang'),
-                                TextInput::make('tahunmulai'),
-                                TextInput::make('tahunselesai'),
-                                TextInput::make('alasan')->placeholder('Kosongkan Jika Tidak Ada'),
+                                TextInput::make('nomorpengalaman')->label('Nomor'),
+                                TextInput::make('negara')->label('Negara'),
+                                TextInput::make('gaji')->label('Gaji'),
+                                TextInput::make('jumlahorang')->label('Jumlah Orang'),
+                                TextInput::make('tahunmulai')->label('Tahun Mulai'),
+                                TextInput::make('tahunselesai')->label('Tahun Selesai'),
+                                TextInput::make('alasan')->placeholder('Kosongkan Jika Tidak Ada')->label('Alasan Berhenti'),
                                 Fieldset::make('')
                                     ->schema([
                                         Radio::make('careofbabies')
+                                            ->label('Merawat Bayi ?')
+                                            ->default('NO')
                                             ->options([
                                                 'YES' => 'YES',
                                                 'NO' => 'NO',
@@ -350,6 +394,8 @@ class BionipResource extends Resource
                                             ->inline()
                                             ->inlineLabel(false),
                                         Radio::make('careoftoddler')
+                                            ->label('Merawat Balita ?')
+                                            ->default('NO')
                                             ->options([
                                                 'YES' => 'YES',
                                                 'NO' => 'NO',
@@ -357,6 +403,8 @@ class BionipResource extends Resource
                                             ->inline()
                                             ->inlineLabel(false),
                                         Radio::make('careofchildren')
+                                            ->label('Merawat Anak ?')
+                                            ->default('NO')
                                             ->options([
                                                 'YES' => 'YES',
                                                 'NO' => 'NO',
@@ -364,6 +412,8 @@ class BionipResource extends Resource
                                             ->inline()
                                             ->inlineLabel(false),
                                         Radio::make('careofelderly')
+                                            ->label('Merawat Lansia ?')
+                                            ->default('NO')
                                             ->options([
                                                 'YES' => 'YES',
                                                 'NO' => 'NO',
@@ -371,6 +421,8 @@ class BionipResource extends Resource
                                             ->inline()
                                             ->inlineLabel(false),
                                         Radio::make('careofdisabled')
+                                            ->label('Merawat Penyandang Cacat ?')
+                                            ->default('NO')
                                             ->options([
                                                 'YES' => 'YES',
                                                 'NO' => 'NO',
@@ -378,6 +430,8 @@ class BionipResource extends Resource
                                             ->inline()
                                             ->inlineLabel(false),
                                         Radio::make('careofbedridden')
+                                            ->label('Merawat Penyandang Lumpuh ?')
+                                            ->default('NO')
                                             ->options([
                                                 'YES' => 'YES',
                                                 'NO' => 'NO',
@@ -385,6 +439,8 @@ class BionipResource extends Resource
                                             ->inline()
                                             ->inlineLabel(false),
                                         Radio::make('careofpet')
+                                            ->label('Merawat Hewan ?')
+                                            ->default('NO')
                                             ->options([
                                                 'YES' => 'YES',
                                                 'NO' => 'NO',
@@ -392,6 +448,8 @@ class BionipResource extends Resource
                                             ->inline()
                                             ->inlineLabel(false),
                                         Radio::make('householdworks')
+                                            ->label('Pekerjaan Rumah Tangga ?')
+                                            ->default('NO')
                                             ->options([
                                                 'YES' => 'YES',
                                                 'NO' => 'NO',
@@ -399,6 +457,8 @@ class BionipResource extends Resource
                                             ->inline()
                                             ->inlineLabel(false),
                                         Radio::make('carwashing')
+                                            ->label('Mencuci Mobil ?')
+                                            ->default('NO')
                                             ->options([
                                                 'YES' => 'YES',
                                                 'NO' => 'NO',
@@ -406,6 +466,8 @@ class BionipResource extends Resource
                                             ->inline()
                                             ->inlineLabel(false),
                                         Radio::make('gardening')
+                                            ->label('Berkebun ?')
+                                            ->default('NO')
                                             ->options([
                                                 'YES' => 'YES',
                                                 'NO' => 'NO',
@@ -413,6 +475,8 @@ class BionipResource extends Resource
                                             ->inline()
                                             ->inlineLabel(false),
                                         Radio::make('cooking')
+                                            ->label('Memasak ?')
+                                            ->default('NO')
                                             ->options([
                                                 'YES' => 'YES',
                                                 'NO' => 'NO',
@@ -420,6 +484,8 @@ class BionipResource extends Resource
                                             ->inline()
                                             ->inlineLabel(false),
                                         Radio::make('driving')
+                                            ->label('Menyetir Mobil ?')
+                                            ->default('NO')
                                             ->options([
                                                 'YES' => 'YES',
                                                 'NO' => 'NO',
@@ -436,42 +502,48 @@ class BionipResource extends Resource
                     ->schema([
                         Fieldset::make('')
                             ->schema([
-                                Radio::make('babi')
+                                Radio::make('babi')->label('Memakan Daging Babi ?')
+                                    ->default('NO')
                                     ->options([
                                         'YES' => 'YES',
                                         'NO' => 'NO',
                                     ])
                                     ->inline()
                                     ->inlineLabel(false),
-                                Radio::make('liburbukanhariminggu')
+                                Radio::make('liburbukanhariminggu')->label('Bersedia Libur Selain Minggu')
+                                    ->default('NO')
                                     ->options([
                                         'YES' => 'YES',
                                         'NO' => 'NO',
                                     ])
                                     ->inline()
                                     ->inlineLabel(false),
-                                Radio::make('berbagikamar')
+                                Radio::make('berbagikamar')->label('Berbagi Kamar ?')
+                                    ->default('NO')
                                     ->options([
                                         'YES' => 'YES',
                                         'NO' => 'NO',
                                     ])
                                     ->inline()
                                     ->inlineLabel(false),
-                                Radio::make('takutanjing')
+                                Radio::make('takutanjing')->label('Takut Dengan Anjing ?')
+                                    ->default('NO')
                                     ->options([
                                         'YES' => 'YES',
                                         'NO' => 'NO',
                                     ])
                                     ->inline()
                                     ->inlineLabel(false),
-                                Radio::make('merokok')
+                                Radio::make('merokok')->label('Merokok ?')
+                                    ->default('NO')
                                     ->options([
                                         'YES' => 'YES',
                                         'NO' => 'NO',
                                     ])
                                     ->inline()
                                     ->inlineLabel(false),
-                                Radio::make('alkohol')
+                                Radio::make('alkohol')->label('Minum Alkohol ?')
+                                    ->default('NO')
                                     ->options([
                                         'YES' => 'YES',
                                         'NO' => 'NO',
@@ -481,7 +553,9 @@ class BionipResource extends Resource
                             ])->columns(3),
                         Fieldset::make('')
                             ->schema([
-                                Radio::make('pernahsakit')
+                                Radio::make('pernahsakit')->label('Pernah Sakit ?')
+                                    ->default('NO')
+                                    ->helperText('Isi Keterangan Jika Pernah Sakit Lama / Operasi')
                                     ->options([
                                         'YES' => 'YES',
                                         'NO' => 'NO',
@@ -515,17 +589,23 @@ class BionipResource extends Resource
                     TextColumn::make('usia')->label('USIA')->suffix(' YO')->sortable(),
                     TextColumn::make('tanggal_lahir')->label('TANGGAL LAHIR')->sortable(),
                     TextColumn::make('created_at')->label('DIBUAT PADA')->sortable(),
+                    TextColumn::make('Tujuan.nama')->label('NEGARA')->color('primary')->sortable(),
+                    TextColumn::make('Marketing.nama')->label('MARKETING')->color('primary')->sortable(),
+                    TextColumn::make('Kantor.nama')->label('KANTOR')->color('primary')->sortable(),
                 ]),
             ])
             ->filters([
-                //
+                SelectFilter::make('Kantor')->relationship('Kantor', 'nama')->label('KANTOR'),
+                SelectFilter::make('Tujuan')->relationship('Tujuan', 'nama')->label('NEGARA'),
+                SelectFilter::make('Agency')->relationship('Agency', 'nama')->label('AGENCY'),
+                SelectFilter::make('Marketing')->relationship('Marketing', 'nama')->label('MARKETING')
+
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\EditAction::make()
                         ->label('Ubah')
-                        ->color('primary')
-                        ->openUrlInNewTab(),
+                        ->color('primary'),
                     Action::make('Download Pdf')
                         ->label('Cetak')
                         ->icon('heroicon-o-printer')
@@ -533,8 +613,8 @@ class BionipResource extends Resource
                         // ->url(fn() => route('biodata.pdf'))
                         ->openUrlInNewTab()
                         ->color('success'),
-                    Tables\Actions\ViewAction::make()->label('Lihat')->icon('heroicon-o-identification')
-                        ->openUrlInNewTab(),
+                    // Tables\Actions\ViewAction::make()->label('Lihat')->icon('heroicon-o-identification')
+                    //     ->openUrlInNewTab(),
                     Tables\Actions\DeleteAction::make(),
 
                 ])
