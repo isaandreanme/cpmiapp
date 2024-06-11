@@ -21,4 +21,8 @@ class Tujuan extends Model
     {
         return $this->hasMany(Biodata::class);
     }
+    public function Bionip()
+    {
+        return $this->hasMany(Bionip::class);
+    }
 }

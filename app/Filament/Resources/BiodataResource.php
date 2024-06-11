@@ -242,75 +242,64 @@ class BiodataResource extends Resource
                                 Radio::make('careofbabies')
                                     ->label('護理嬰兒 Care of Babies')
                                     ->options([
-                                        'POOR' => 'POOR',
-                                        'FAIR' => 'FAIR',
-                                        'GOOD' => 'GOOD',
-                                        'VERY GOOD' => 'VERY GOOD',
-                                    ]),
+                                        'POOR' => 'YES',
+                                        'FAIR' => 'NO',
+                                    ])
+                                    ->inline()
+                                    ->inlineLabel(false),
 
                                 Radio::make('careofyoung')
                                     ->label('護理兒童 Care of Young Children')
                                     ->options([
-                                        'POOR' => 'POOR',
-                                        'FAIR' => 'FAIR',
-                                        'GOOD' => 'GOOD',
-                                        'VERY GOOD' => 'VERY GOOD',
-
-                                    ]),
+                                        'POOR' => 'YES',
+                                        'FAIR' => 'NO',
+                                    ])
+                                    ->inline()
+                                    ->inlineLabel(false),
 
                                 Radio::make('householdworks')
                                     ->label('家務 Household Works')
                                     ->options([
-                                        'POOR' => 'POOR',
-                                        'FAIR' => 'FAIR',
-                                        'GOOD' => 'GOOD',
-                                        'VERY GOOD' => 'VERY GOOD',
-                                    ]),
-
-                                Radio::make('personality')
-                                    ->label('個性表現 Personality')
-                                    ->options([
-                                        'POOR' => 'POOR',
-                                        'FAIR' => 'FAIR',
-                                        'GOOD' => 'GOOD',
-                                        'VERY GOOD' => 'VERY GOOD',
-                                    ]),
-
-                                Radio::make('facialexpression')
-                                    ->label('儀容 Facial Expression')
-                                    ->options([
-                                        'POOR' => 'POOR',
-                                        'FAIR' => 'FAIR',
-                                        'GOOD' => 'GOOD',
-                                        'VERY GOOD' => 'VERY GOOD',
-                                    ]),
+                                        'POOR' => 'YES',
+                                        'FAIR' => 'NO',
+                                    ])
+                                    ->inline()
+                                    ->inlineLabel(false),
 
                                 Radio::make('careofelderly')
                                     ->label('護理老人 Care of Elderly/Disable')
                                     ->options([
-                                        'POOR' => 'POOR',
-                                        'FAIR' => 'FAIR',
-                                        'GOOD' => 'GOOD',
-                                        'VERY GOOD' => 'VERY GOOD',
-                                    ]),
+                                        'POOR' => 'YES',
+                                        'FAIR' => 'NO',
+                                    ])
+                                    ->inline()
+                                    ->inlineLabel(false),
 
                                 Radio::make('cooking')
                                     ->label('烹飪 Cooking')
                                     ->options([
-                                        'POOR' => 'POOR',
-                                        'FAIR' => 'FAIR',
-                                        'GOOD' => 'GOOD',
-                                        'VERY GOOD' => 'VERY GOOD',
-                                    ]),
+                                        'POOR' => 'YES',
+                                        'FAIR' => 'NO',
+                                    ])
+                                    ->inline()
+                                    ->inlineLabel(false),
 
                                 Radio::make('housmaid')
                                     ->label('女傭經驗 Exp. In Housemaid')
                                     ->options([
-                                        'POOR' => 'POOR',
-                                        'FAIR' => 'FAIR',
-                                        'GOOD' => 'GOOD',
-                                        'VERY GOOD' => 'VERY GOOD',
-                                    ]),
+                                        'POOR' => 'YES',
+                                        'FAIR' => 'NO',
+                                    ])
+                                    ->inline()
+                                    ->inlineLabel(false),
+                            ])->columns(3),
+                        Fieldset::make('LANGUAGE')
+                            // ->columns([
+                            //     'sm' => 2,
+                            //     'xl' => 4,
+                            //     '2xl' => 4,
+                            // ])
+                            ->schema([
 
                                 Radio::make('spokenenglish')
                                     ->label('能操英語 Spoken English')
@@ -318,7 +307,7 @@ class BiodataResource extends Resource
                                         'POOR' => 'POOR',
                                         'FAIR' => 'FAIR',
                                         'GOOD' => 'GOOD',
-                                        'VERY GOOD' => 'VERY GOOD',
+                                        // 'VERY GOOD' => 'VERY GOOD',
                                     ]),
 
                                 Radio::make('spokencantonese')
@@ -327,7 +316,7 @@ class BiodataResource extends Resource
                                         'POOR' => 'POOR',
                                         'FAIR' => 'FAIR',
                                         'GOOD' => 'GOOD',
-                                        'VERY GOOD' => 'VERY GOOD',
+                                        // 'VERY GOOD' => 'VERY GOOD',
                                     ]),
 
                                 Radio::make('spokenmandarin')
@@ -336,9 +325,25 @@ class BiodataResource extends Resource
                                         'POOR' => 'POOR',
                                         'FAIR' => 'FAIR',
                                         'GOOD' => 'GOOD',
-                                        'VERY GOOD' => 'VERY GOOD',
+                                        // 'VERY GOOD' => 'VERY GOOD',
                                     ]),
-                            ])->columns(4),
+                                Radio::make('personality')
+                                    ->label('個性表現 Personality')
+                                    ->options([
+                                        'POOR' => 'POOR',
+                                        'FAIR' => 'FAIR',
+                                        'GOOD' => 'GOOD',
+                                        // 'VERY GOOD' => 'VERY GOOD',
+                                    ]),
+                                Radio::make('facialexpression')
+                                    ->label('儀容 Facial Expression')
+                                    ->options([
+                                        'POOR' => 'POOR',
+                                        'FAIR' => 'FAIR',
+                                        'GOOD' => 'GOOD',
+                                        // 'VERY GOOD' => 'VERY GOOD',
+                                    ]),
+                            ])->columns(5),
                         //----------------------------------------------------------------
                         Fieldset::make('PETS')
                             ->schema([

@@ -7,6 +7,31 @@
     <title>Biodata NIP</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 5px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .box-header {
+            background-color: skyblue;
+            padding: 10px;
+        }
+
+        .left-align {
+            text-align: left;
+        }
+
         .center {
             text-align: center;
         }
@@ -115,92 +140,129 @@
     <div class="grid grid-cols-2 gap-4">
         <!-- New Section Details -->
         <div class="box">
-            <h2 class="text-center mb-4 font-bold uppercase" style="background-color: skyblue; padding: 10px;">
-                Details</h2>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->nama)
-                Name : {{ $record->nama }}
-                @else
-                Name : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->usia)
-                Age 年齡 : {{ $record->usia }} (YO)
-                @else
-                Age 年齡 : Data Tidak Ditemukan (YO)
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->tanggal_lahir)
-                Date of birth 出身日期 : {{ $record->tanggal_lahir }}
-                @else
-                Date of birth 出身日期 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->tempat_lahir)
-                Place of birth 出身地點 : {{ $record->tempat_lahir }}
-                @else
-                Place of birth 出身地點 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->tinggi_badan)
-                Height 身高 : {{ $record->tinggi_badan }}
-                @else
-                Height 身高 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->berat_badan)
-                Weight 體重 : {{ $record->berat_badan }}
-                @else
-                Weight 體重 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->agama)
-                Religion 宗教 : {{ $record->agama }}
-                @else
-                Religion 宗教 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->lulusan)
-                Education 教育 : {{ $record->lulusan }}
-                @else
-                Education 教育 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->status_nikah)
-                Marital Status 婚姻狀況 : {{ $record->status_nikah }}
-                @else
-                Marital Status 婚姻狀況 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->jumlah_anak)
-                No. of children/Age 子女數目/年齡 : {{ $record->jumlah_anak }}
-                @else
-                No. of children/Age 子女數目/年齡 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->jumlah_saudara)
-                No. of brothers/Sisters 兄妹數目 : {{ $record->jumlah_saudara }}
-                @else
-                No. of brothers/Sisters 兄妹數目 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->anak_ke)
-                I am the in the family 家中排行第 : {{ $record->anak_ke }}
-                @else
-                I am the in the family 家中排行第 : Data Tidak Ditemukan
-                @endif
-            </p>
+            <h2 class="text-center mb-4 font-bold uppercase box-header">Details</h2>
+            <table class="w-full">
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Name</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->nama)
+                        {{ $record->nama }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Age 年齡</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->usia)
+                        {{ $record->usia }} (YO)
+                        @else
+                        Data Tidak Ditemukan (YO)
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Date of birth 出身日期</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->tanggal_lahir)
+                        {{ $record->tanggal_lahir }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Place of birth 出身地點</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->tempat_lahir)
+                        {{ $record->tempat_lahir }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Height 身高</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->tinggi_badan)
+                        {{ $record->tinggi_badan }} (CM)
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Weight 體重</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->berat_badan)
+                        {{ $record->berat_badan }} (KG)
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Religion 宗教</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->agama)
+                        {{ $record->agama }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Education 教育</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->lulusan)
+                        {{ $record->lulusan }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Marital Status 婚姻狀況</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->status_nikah)
+                        {{ $record->status_nikah }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">No. of children/Age 子女數目/年齡</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->jumlah_anak)
+                        {{ $record->jumlah_anak }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">No. of brothers/Sisters 兄妹數目</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->jumlah_saudara)
+                        {{ $record->jumlah_saudara }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">I am the in the family 家中排行第</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->anak_ke)
+                        {{ $record->anak_ke }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+            </table>
         </div>
 
         <!-- New Section Finished Contract on -->
@@ -223,48 +285,72 @@
             <br>
             <h2 class="text-center mb-4 font-bold uppercase" style="background-color: skyblue; padding: 10px;">
                 Finished Contract on</h2>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->pengalaman_luarnegeri)
-                Overseas Experience 海外經驗 : {{ $record->pengalaman_luarnegeri }}
-                @else
-                Overseas Experience 海外經驗 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->ket_pengalaman_luarnegeri)
-                Where 何處 : {{ $record->ket_pengalaman_luarnegeri }}
-                @else
-                Where 何處 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->pengalaman_lokal)
-                Local Experience 印尼本土經驗 : {{ $record->pengalaman_lokal }}
-                @else
-                Local Experience 印尼本土經驗 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->ket_pengalaman_lokal)
-                Where 何處 : {{ $record->ket_pengalaman_lokal }}
-                @else
-                Where 何處 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->housekeeping)
-                Recommended for House Keeping : {{ $record->housekeeping }}
-                @else
-                Recommended for House Keeping : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->babysitting)
-                Recommended for Baby Sitting : {{ $record->babysitting }}
-                @else
-                Recommended for Baby Sitting : Data Tidak Ditemukan
-                @endif
-            </p>
+            <table class="w-full">
+                <!-- <tr>
+                    <th class="text-gray-700 font-bold uppercase">Label</th>
+                    <th class="text-gray-700 font-bold uppercase">Value</th>
+                </tr> -->
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Overseas Experience 海外經驗</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->pengalaman_luarnegeri)
+                        {{ $record->pengalaman_luarnegeri }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Where 何處 (Overseas)</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->ket_pengalaman_luarnegeri)
+                        {{ $record->ket_pengalaman_luarnegeri }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Local Experience 印尼本土經驗</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->pengalaman_lokal)
+                        {{ $record->pengalaman_lokal }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Where 何處 (Local)</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->ket_pengalaman_lokal)
+                        {{ $record->ket_pengalaman_lokal }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Recommended for House Keeping</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->housekeeping)
+                        {{ $record->housekeeping }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Recommended for Baby Sitting</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                        @if ($record && $record->babysitting)
+                        {{ $record->babysitting }}
+                        @else
+                        Data Tidak Ditemukan
+                        @endif
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 
@@ -284,104 +370,101 @@
 
         <!-- New Section SKILLS -->
         <div class="box">
-            <h2 class="text-center mb-4 font-bold uppercase" style="background-color: skyblue; padding: 10px;">
-                SKILLS</h2>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->careofbabies)
-                ★ 護理嬰兒 Care of Babies : {{ $record->careofbabies }}
-                @else
-                ★ 護理嬰兒 Care of Babies : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->careofyoung)
-                ★ 護理兒童 Care of Young Children : {{ $record->careofyoung }}
-                @else
-                ★ 護理兒童 Care of Young Children : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->householdworks)
-                ★ 家務 Household Works : {{ $record->householdworks }}
-                @else
-                ★ 家務 Household Works : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->personality)
-                ★ 個性表現 Personality : {{ $record->personality }}
-                @else
-                ★ 個性表現 Personality : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->facialexpression)
-                ★ 儀容 Facial Expression : {{ $record->facialexpression }}
-                @else
-                ★ 儀容 Facial Expression : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->careofelderly)
-                ★ 護理老人 Care of Elderly/Disable : {{ $record->careofelderly }}
-                @else
-                ★ 護理老人 Care of Elderly/Disable : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->cooking)
-                ★ 烹飪 Cooking : {{ $record->cooking }}
-                @else
-                ★ 烹飪 Cooking : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->housmaid)
-                ★ 女傭經驗 Exp. In Housemaid : {{ $record->housmaid }}
-                @else
-                ★ 女傭經驗 Exp. In Housemaid : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->spokenenglish)
-                ★ 能操英語 Spoken English : {{ $record->spokenenglish }}
-                @else
-                ★ 能操英語 Spoken English : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->spokencantonese)
-                ★ 能操廣東話 Spoken Cantonese : {{ $record->spokencantonese }}
-                @else
-                ★ 能操廣東話 Spoken Cantonese : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->spokenmandarin)
-                ★ 能操國語 Spoken Mandarin : {{ $record->spokenmandarin }}
-                @else
-                ★ 能操國語 Spoken Mandarin : Data Tidak Ditemukan
-                @endif
-            </p>
-            <!-- New PETS -->
+            <h2 class="text-center mb-4 font-bold uppercase box-header">SKILLS</h2>
+
+            <table class="w-full">
+                <tr>
+                    <th class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Working Experience 工作經驗</th>
+                    <th class="text-gray-700 text-sm p-2 font-bold uppercase">YES</th>
+                    <th class="text-gray-700 text-sm p-2 font-bold uppercase">NO</th>
+                </tr>
+                @foreach ([
+                '護理嬰兒 Care of Babies' => $record->careofbabies ?? 'Data Tidak Ditemukan',
+                '護理兒童 Care of Young Children' => $record->careofyoung ?? 'Data Tidak Ditemukan',
+                '家務 Household Works' => $record->householdworks ?? 'Data Tidak Ditemukan',
+                '護理老人 Care of Elderly/Disable' => $record->careofelderly ?? 'Data Tidak Ditemukan',
+                '烹飪 Cooking' => $record->cooking ?? 'Data Tidak Ditemukan',
+                '女傭經驗 Exp. In Housemaid' => $record->housmaid ?? 'Data Tidak Ditemukan',
+                ] as $skill => $value)
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">{{ $skill }}</td>
+                   <td class="text-gray-700 text-sm p-2 font-bold uppercase">
+                        @if ($value == 'POOR') ✓ @endif
+                    </td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase">
+                        @if ($value == 'FAIR') ✓ @endif
+                    </td>
+                    <!--<td class="text-gray-700 text-sm p-2 font-bold uppercase">-->
+                    <!--    @if ($value == 'GOOD') ✓ @endif-->
+                    <!--</td>-->
+                    <!-- <td class="text-gray-700 text-sm p-2 font-bold uppercase">
+                        @if ($value == 'GOOD') ✓ @endif
+                    </td> -->
+                    <!-- <td class="text-gray-700 text-sm p-2 font-bold uppercase">
+                        @if ($value == 'VERY GOOD') ✓ @endif
+                    </td> -->
+                </tr>
+                @endforeach
+            </table>
+            <br>
+
+            <table class="w-full">
+                <tr>
+                    <th class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Language Skills 語言能力</th>
+                    <th class="text-gray-700 text-sm p-2 font-bold uppercase">POOR</th>
+                    <th class="text-gray-700 text-sm p-2 font-bold uppercase">FAIR</th>
+                    <th class="text-gray-700 text-sm p-2 font-bold uppercase">GOOD</th>
+                    <!-- <th class="text-gray-700 text-sm p-2 font-bold uppercase">VERY GOOD</th> -->
+                </tr>
+                @foreach ([
+                '能操英語 Spoken English' => $record->spokenenglish ?? 'Data Tidak Ditemukan',
+                '能操廣東話 Spoken Cantonese' => $record->spokencantonese ?? 'Data Tidak Ditemukan',
+                '能操國語 Spoken Mandarin' => $record->spokenmandarin ?? 'Data Tidak Ditemukan',
+                 '個性表現 Personality' => $record->personality ?? 'Data Tidak Ditemukan',
+                '儀容 Facial Expression' => $record->facialexpression ?? 'Data Tidak Ditemukan',
+                ] as $skill => $value)
+                <tr>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">{{ $skill }}</td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase">
+                        @if ($value == 'POOR') ✓ @endif
+                    </td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase">
+                        @if ($value == 'FAIR') ✓ @endif
+                    </td>
+                    <td class="text-gray-700 text-sm p-2 font-bold uppercase">
+                        @if ($value == 'GOOD') ✓ @endif
+                    </td>
+                    <!-- <td class="text-gray-700 text-sm p-2 font-bold uppercase">
+                        @if ($value == 'VERY GOOD') ✓ @endif
+                    </td> -->
+                </tr>
+                @endforeach
+            </table>
+            <br>
+            <!-- New Section PETS -->
             <div class="box">
-                <h2 class="text-center mb-4 font-bold uppercase" style="background-color: skyblue; padding: 10px;">
-                    PETS
-                </h2>
-                <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                    @if ($record && $record->afraidofdog)
-                    怕狗 Afraid of Dog : {{ $record->afraidofdog }}
-                    @else
-                    怕狗 Afraid of Dog : Data Tidak Ditemukan
-                    @endif
-                </p>
-                <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                    @if ($record && $record->caringdog)
-                    經驗照顧狗 Exp. Caring for Dogs : {{ $record->caringdog }}
-                    @else
-                    經驗照顧狗 Exp. Caring for Dogs : Data Tidak Ditemukan
-                    @endif
-                </p>
+                <h2 class="text-center mb-4 font-bold uppercase box-header">PETS</h2>
+                <table class="w-full">
+                    <tr>
+                        <th class="text-gray-700 text-sm p-2 font-bold uppercase left-align"></th>
+                        <th class="text-gray-700 text-sm p-2 font-bold uppercase">YES</th>
+                        <th class="text-gray-700 text-sm p-2 font-bold uppercase">NO</th>
+                    </tr>
+                    @foreach ([
+                    '怕狗 Afraid of Dog' => $record->afraidofdog ?? 'Data Tidak Ditemukan',
+                    '經驗照顧狗 Exp. Caring for Dogs' => $record->caringdog ?? 'Data Tidak Ditemukan',
+                    ] as $skill => $value)
+                    <tr>
+                        <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">{{ $skill }}</td>
+                        <td class="text-gray-700 text-sm p-2 font-bold uppercase">
+                            @if ($value === 'YES') ✓ @endif
+                        </td>
+                        <td class="text-gray-700 text-sm p-2 font-bold uppercase">
+                            @if ($value === 'NO') ✓ @endif
+                        </td>
+                    </tr>
+                    @endforeach
+                </table>
             </div>
         </div>
     </div>
@@ -394,83 +477,122 @@
 
     <!-- ---------------------------------------------------------------->
 
-    <div class="grid grid-cols-2 gap-4">
-        <!-- New Section HUSBAN -->
-        <div class="box">
-            <h2 class="text-center mb-4 font-bold uppercase" style="background-color: skyblue; padding: 10px;">
-                HUSBAN</h2>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->nama_suami)
-                Name of Spouse 配偶姓名/husband : {{ $record->nama_suami }}
-                @else
-                Name of Spouse 配偶姓名/husband : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->usia_suami)
-                Age 年齡 : {{ $record->usia_suami }} (YO)
-                @else
-                Age 年齡 : Data Tidak Ditemukan (YO)
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->pekerjaan_suami)
-                Spouse’s Occupation 配偶職業 : {{ $record->pekerjaan_suami }}
-                @else
-                Spouse’s Occupation 配偶職業 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->anakke_suami)
-                No. of Children 子女數 : {{ $record->anakke_suami }}
-                @else
-                No. of Children 子女數 : Data Tidak Ditemukan
-                @endif
-            </p>
-        </div>
-
+    <!-- <div class="grid grid-cols-2 gap-4"> -->
+    <!-- New Section HUSBAN -->
+    <div class="box">
+        <h2 class="text-center mb-4 font-bold uppercase" style="background-color: skyblue; padding: 10px;">
+            HUSBAND</h2>
+        <table>
+            <!-- <tr>
+                <th class="text-gray-700 font-bold uppercase">Label</th>
+                <th class="text-gray-700 font-bold uppercase">Value</th>
+            </tr> -->
+            <tr>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Name of Spouse 配偶姓名/husband</td>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                    @if ($record && $record->nama_suami)
+                    {{ $record->nama_suami }}
+                    @else
+                    Data Tidak Ditemukan
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Age 年齡</td>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                    @if ($record && $record->usia_suami)
+                    {{ $record->usia_suami }} (YO)
+                    @else
+                    Data Tidak Ditemukan (YO)
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Spouse’s Occupation 配偶職業</td>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                    @if ($record && $record->pekerjaan_suami)
+                    {{ $record->pekerjaan_suami }}
+                    @else
+                    Data Tidak Ditemukan
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">No. of Children 子女數</td>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                    @if ($record && $record->anakke_suami)
+                    {{ $record->anakke_suami }}
+                    @else
+                    Data Tidak Ditemukan
+                    @endif
+                </td>
+            </tr>
+        </table>
+        <!-- </div> -->
+        <br>
 
         <!-- New Section PARENTS -->
-        <div class="box">
-            <h2 class="text-center mb-4 font-bold uppercase" style="background-color: skyblue; padding: 10px;">
-                PARENTS</h2>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->nama_ayah)
-                Name of Father/Occupation 父親姓名/職業 : {{ $record->nama_ayah }}
-                @else
-                Name of Father/Occupation 父親姓名/職業 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->usia_ayah)
-                Age 年齡 : {{ $record->usia_ayah }} (YO)
-                @else
-                Age 年齡 : Data Tidak Ditemukan (YO)
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->nama_ibu)
-                Name of Mother/Occupation母親姓 : {{ $record->nama_ibu }}
-                @else
-                Name of Mother/Occupation母親姓 : Data Tidak Ditemukan
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->usia_ibu)
-                Age 年齡 : {{ $record->usia_ibu }} (YO)
-                @else
-                Age 年齡 : Data Tidak Ditemukan (YO)
-                @endif
-            </p>
-            <p class="text-gray-700 text-sm bg-gray-200 p-2 font-bold uppercase">
-                @if ($record && $record->alamat_ortu)
-                ADDRESS : {{ $record->alamat_ortu }}
-                @else
-                ADDRESS : Data Tidak Ditemukan
-                @endif
-            </p>
-        </div>
+        <!-- <div class="box"> -->
+        <h2 class="text-center mb-4 font-bold uppercase" style="background-color: skyblue; padding: 10px;">
+            PARENTS</h2>
+        <table>
+            <!-- <tr>
+                <th class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Label</th>
+                <th class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Value</th>
+            </tr> -->
+            <tr>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Name of Father/Occupation 父親姓名/職業</td>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                    @if ($record && $record->nama_ayah)
+                    {{ $record->nama_ayah }}
+                    @else
+                    Data Tidak Ditemukan
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Age of Father 年齡</td>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                    @if ($record && $record->usia_ayah)
+                    {{ $record->usia_ayah }} (YO)
+                    @else
+                    Data Tidak Ditemukan (YO)
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Name of Mother/Occupation 母親姓/職業</td>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                    @if ($record && $record->nama_ibu)
+                    {{ $record->nama_ibu }}
+                    @else
+                    Data Tidak Ditemukan
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Age of Mother 年齡</td>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                    @if ($record && $record->usia_ibu)
+                    {{ $record->usia_ibu }} (YO)
+                    @else
+                    Data Tidak Ditemukan (YO)
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">Address Alamat</td>
+                <td class="text-gray-700 text-sm p-2 font-bold uppercase left-align">
+                    @if ($record && $record->alamat_ortu)
+                    {{ $record->alamat_ortu }}
+                    @else
+                    Data Tidak Ditemukan
+                    @endif
+                </td>
+            </tr>
+        </table>
     </div>
+    <!-- </div> -->
 
     <!-- ---------------------------------------------------------------->
 

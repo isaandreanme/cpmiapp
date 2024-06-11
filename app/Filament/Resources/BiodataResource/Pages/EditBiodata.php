@@ -25,35 +25,35 @@ class EditBiodata extends EditRecord
         return $this->getResource()::getUrl('view', ['record' => $this->getRecord()]);
     }
 
-    protected function getSavedNotification(): ?Notification
-    {
-        $data = $this->record;
+    // protected function getSavedNotification(): ?Notification
+    // {
+    //     $data = $this->record;
 
-        // Buat tombol "View" dengan tipe yang benar
-        $viewButton = NotificationAction::make('Lihat')
-            ->url(BiodataResource::getUrl('view', ['record' => $data]));
+    //     // Buat tombol "View" dengan tipe yang benar
+    //     $viewButton = NotificationAction::make('Lihat')
+    //         ->url(BiodataResource::getUrl('view', ['record' => $data]));
 
-        $recipients = User::all();
+    //     $recipients = User::all();
 
-        foreach ($recipients as $recipient) {
+    //     foreach ($recipients as $recipient) {
 
-            $editorName = auth()->user()->name; // Menggunakan Auth untuk mendapatkan nama pengguna yang sedang masuk
+    //         $editorName = auth()->user()->name; // Menggunakan Auth untuk mendapatkan nama pengguna yang sedang masuk
 
-            // Buat notifikasi dengan tombol "View"
-            $notification = Notification::make()
-                ->title('BIODATA')
-                // ->body('Data CPMI Berhasil Diubah')
-                ->body("<strong>{$data->nama}</strong> Berhasil Update
-                <br>
-                Oleh <strong>{$editorName}</strong>") 
-                ->actions([$viewButton]) // Tambahkan tombol "View" ke notifikasi
-                // ->send()
-                ->persistent()
-                ->success()
-                ->duration(1000)
-                ->sendToDatabase($recipient);
-        }
+    //         // Buat notifikasi dengan tombol "View"
+    //         $notification = Notification::make()
+    //             ->title('BIODATA')
+    //             // ->body('Data CPMI Berhasil Diubah')
+    //             ->body("<strong>{$data->nama}</strong> Berhasil Update
+    //             <br>
+    //             Oleh <strong>{$editorName}</strong>") 
+    //             ->actions([$viewButton]) // Tambahkan tombol "View" ke notifikasi
+    //             // ->send()
+    //             ->persistent()
+    //             ->success()
+    //             ->duration(1000)
+    //             ->sendToDatabase($recipient);
+    //     }
 
-        return $notification;
-    }
+    //     return $notification;
+    // }
 }
