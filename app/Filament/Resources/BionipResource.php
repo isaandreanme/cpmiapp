@@ -583,7 +583,7 @@ class BionipResource extends Resource
                 ImageColumn::make('foto')->label('')->circular()->size(60),
                 TextColumn::make('nama')->label('NAMA')->searchable()
                     ->description(fn (Bionip $record): string => $record->code),
-                TextColumn::make('usia')->label('USIA')->suffix(' YO')->sortable()
+                TextColumn::make('usia')->label('USIA')->suffix(' THN')->sortable()
                     ->description(fn (Bionip $record): string => $record->tanggal_lahir),
                 TextColumn::make('created_at')->label('DIBUAT PADA')->sortable()->dateTime('d-m-Y'),
                 TextColumn::make('Tujuan.nama')->label('NEGARA'),
