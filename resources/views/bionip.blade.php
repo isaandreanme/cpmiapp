@@ -141,7 +141,7 @@
             <div class="col-span-1">
                 <table class="w-full">
                     <tr>
-                        <td class="text-gray-700 text-sm p-2 uppercase left-align" style="background-color: #f3f3f3;">Name</td>
+                        <td class="text-gray-700 text-sm p-2 uppercase left-align" style="background-color: #f3f3f3;">Name 姓名</td>
                         <td class="text-gray-700 text-sm p-2 uppercase left-align">
                             @if ($record && $record->nama)
                             {{ $record->nama }}
@@ -321,7 +321,7 @@
             <br>
             <p class="text-gray-700 text-sm p-2 uppercase">
                 @if ($record && $record->remark)
-                REMARK : {{ $record->remark }}
+                REMARK 備註 : {{ $record->remark }}
                 @else
                 -
                 @endif
@@ -334,8 +334,8 @@
             <table class="w-full">
                 <tr>
                     <th class="text-gray-700 text-sm p-2 uppercase left-align"></th>
-                    <th class="text-gray-700 text-sm p-2 uppercase">YES</th>
-                    <th class="text-gray-700 text-sm p-2 uppercase">NO</th>
+                    <th class="text-gray-700 text-sm p-2 uppercase">YES 是</th>
+                    <th class="text-gray-700 text-sm p-2 uppercase">NO 否</th>
                 </tr>
                 @foreach ([
                 'Care of Babies 照顧嬰兒' => $record->careofbabies ?? '-',
@@ -367,9 +367,9 @@
             <table class="w-full">
                 <tr>
                     <th class="text-gray-700 text-sm p-2 uppercase left-align">Language Skills 語言能力</th>
-                    <th class="text-gray-700 text-sm p-2 uppercase">POOR</th>
-                    <th class="text-gray-700 text-sm p-2 uppercase">FAIR</th>
-                    <th class="text-gray-700 text-sm p-2 uppercase">GOOD</th>
+                    <th class="text-gray-700 text-sm p-2 uppercase">POOR 差</th>
+                    <th class="text-gray-700 text-sm p-2 uppercase">FAIR 平</th>
+                    <th class="text-gray-700 text-sm p-2 uppercase">GOOD 好</th>
                 </tr>
                 @foreach ([
                 '能操英語 Spoken English' => $record->spokenenglish ?? '-',
@@ -464,8 +464,8 @@
                             <table class="w-full">
                                 <tr>
                                     <th class="text-gray-700 text-sm p-2 uppercase left-align"></th>
-                                    <th class="text-gray-700 text-sm p-2 uppercase">YES</th>
-                                    <th class="text-gray-700 text-sm p-2 uppercase">NO</th>
+                                    <th class="text-gray-700 text-sm p-2 uppercase">YES 是</th>
+                                    <th class="text-gray-700 text-sm p-2 uppercase">NO 否</th>
                                 </tr>
                                 @foreach ([
                                 'Care of Babies 照顧嬰兒' => $experience['careofbabies'] ?? '-',
@@ -491,8 +491,8 @@
                             <table class="w-full">
                                 <tr>
                                     <th class="text-gray-700 text-sm p-2 uppercase left-align"></th>
-                                    <th class="text-gray-700 text-sm p-2 uppercase">YES</th>
-                                    <th class="text-gray-700 text-sm p-2 uppercase">NO</th>
+                                    <th class="text-gray-700 text-sm p-2 uppercase">YES 是</th>
+                                    <th class="text-gray-700 text-sm p-2 uppercase">NO 否</th>
                                 </tr>
                                 @foreach ([
                                 'Care of Pet 照顧寵物' => $experience['careofpet'] ?? '-',
@@ -528,8 +528,8 @@
         <table class="w-full">
             <tr>
                 <th class="text-gray-700 text-sm p-2 uppercase left-align"></th>
-                <th class="text-gray-700 text-sm p-2 uppercase">YES</th>
-                <th class="text-gray-700 text-sm p-2 uppercase">NO</th>
+                <th class="text-gray-700 text-sm p-2 uppercase">YES 是</th>
+                <th class="text-gray-700 text-sm p-2 uppercase">NO 否</th>
             </tr>
             @foreach ([
             'Do you eat pork? 你吃豬肉嗎?' => $record->babi ?? '-',

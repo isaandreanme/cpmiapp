@@ -580,20 +580,17 @@ class BionipResource extends Resource
     {
         return $table
             ->columns([
-                Split::make([
-                    ImageColumn::make('foto')->label('Picture')->circular()->size(60),
-                    Stack::make([
-                        TextColumn::make('nama')->label('NAMA')->sortable(),
-                        TextColumn::make('code')->label('NOMOR BIODATA'),
-                    ]),
-                    TextColumn::make('usia')->label('USIA')->suffix(' YO')->sortable(),
-                    TextColumn::make('tanggal_lahir')->label('TANGGAL LAHIR')->sortable(),
-                    TextColumn::make('created_at')->label('DIBUAT PADA')->sortable(),
-                    TextColumn::make('Tujuan.nama')->label('NEGARA')->color('primary')->sortable(),
-                    TextColumn::make('Marketing.nama')->label('MARKETING')->color('primary')->sortable(),
-                    TextColumn::make('Kantor.nama')->label('KANTOR')->color('primary')->sortable(),
-                ]),
-            ])
+                ImageColumn::make('foto')->label('')->circular()->size(60),
+                TextColumn::make('nama')->label('NAMA')->searchable()
+                    ->description(fn (Bionip $record): string => $record->code),
+                TextColumn::make('usia')->label('USIA')->suffix(' YO')->sortable()
+                    ->description(fn (Bionip $record): string => $record->tanggal_lahir),
+                TextColumn::make('created_at')->label('DIBUAT PADA')->sortable()->dateTime('d-m-Y'),
+                TextColumn::make('Tujuan.nama')->label('NEGARA'),
+                TextColumn::make('Marketing.nama')->label('MARKETING')->color('success'),
+                TextColumn::make('Kantor.nama')->label('KANTOR')->color('primary'),
+                // ->icon('heroicon-m-envelope')
+            ])->defaultSort('updated_at', 'desc')
             ->filters([
                 SelectFilter::make('Kantor')->relationship('Kantor', 'nama')->label('KANTOR'),
                 SelectFilter::make('Tujuan')->relationship('Tujuan', 'nama')->label('NEGARA'),
