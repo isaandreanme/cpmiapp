@@ -77,6 +77,7 @@ class BionipResource extends Resource
                             ->placeholder('Pilih Agency')
                             ->label('Agency'),
                         Radio::make('dapatjob')
+                            ->default('NO')
                             ->options([
                                 'YES' => 'YES',
                                 'NO' => 'NO',
@@ -384,60 +385,84 @@ class BionipResource extends Resource
                                 TextInput::make('alasan')->placeholder('Kosongkan Jika Tidak Ada')->label('Alasan Berhenti'),
                                 Fieldset::make('')
                                     ->schema([
-                                        Radio::make('careofbabies')
-                                            ->label('Merawat Bayi ?')
-                                            ->default('NO')
-                                            ->options([
-                                                'YES' => 'YES',
-                                                'NO' => 'NO',
-                                            ])
-                                            ->inline()
-                                            ->inlineLabel(false),
-                                        Radio::make('careoftoddler')
-                                            ->label('Merawat Balita ?')
-                                            ->default('NO')
-                                            ->options([
-                                                'YES' => 'YES',
-                                                'NO' => 'NO',
-                                            ])
-                                            ->inline()
-                                            ->inlineLabel(false),
-                                        Radio::make('careofchildren')
-                                            ->label('Merawat Anak ?')
-                                            ->default('NO')
-                                            ->options([
-                                                'YES' => 'YES',
-                                                'NO' => 'NO',
-                                            ])
-                                            ->inline()
-                                            ->inlineLabel(false),
-                                        Radio::make('careofelderly')
-                                            ->label('Merawat Lansia ?')
-                                            ->default('NO')
-                                            ->options([
-                                                'YES' => 'YES',
-                                                'NO' => 'NO',
-                                            ])
-                                            ->inline()
-                                            ->inlineLabel(false),
-                                        Radio::make('careofdisabled')
-                                            ->label('Merawat Penyandang Cacat ?')
-                                            ->default('NO')
-                                            ->options([
-                                                'YES' => 'YES',
-                                                'NO' => 'NO',
-                                            ])
-                                            ->inline()
-                                            ->inlineLabel(false),
-                                        Radio::make('careofbedridden')
-                                            ->label('Merawat Penyandang Lumpuh ?')
-                                            ->default('NO')
-                                            ->options([
-                                                'YES' => 'YES',
-                                                'NO' => 'NO',
-                                            ])
-                                            ->inline()
-                                            ->inlineLabel(false),
+                                        Fieldset::make('')
+                                            ->schema([
+                                                Radio::make('careofbabies')
+                                                    ->label('Merawat Bayi ?')
+                                                    ->default('NO')
+                                                    ->options([
+                                                        'YES' => 'YES',
+                                                        'NO' => 'NO',
+                                                    ])
+                                                    ->inline()
+                                                    ->inlineLabel(false),
+                                                TextInput::make('usiabayi')->label('Usia Bayi')->suffix(' Bulan'),
+                                            ]),
+                                        Fieldset::make('')
+                                            ->schema([
+                                                Radio::make('careoftoddler')
+                                                    ->label('Merawat Balita ?')
+                                                    ->default('NO')
+                                                    ->options([
+                                                        'YES' => 'YES',
+                                                        'NO' => 'NO',
+                                                    ])
+                                                    ->inline()
+                                                    ->inlineLabel(false),
+                                                TextInput::make('usiabalita')->label('Usia Balita')->suffix(' Tahun'),
+                                            ]),
+                                        Fieldset::make('')
+                                            ->schema([
+                                                Radio::make('careofchildren')
+                                                    ->label('Merawat Anak ?')
+                                                    ->default('NO')
+                                                    ->options([
+                                                        'YES' => 'YES',
+                                                        'NO' => 'NO',
+                                                    ])
+                                                    ->inline()
+                                                    ->inlineLabel(false),
+                                                TextInput::make('usiaanak')->label('Usia Anak')->suffix(' Tahun'),
+                                            ]),
+                                        Fieldset::make('')
+                                            ->schema([
+                                                Radio::make('careofelderly')
+                                                    ->label('Merawat Lansia ?')
+                                                    ->default('NO')
+                                                    ->options([
+                                                        'YES' => 'YES',
+                                                        'NO' => 'NO',
+                                                    ])
+                                                    ->inline()
+                                                    ->inlineLabel(false),
+                                                TextInput::make('usialansia')->label('Usia Lansia')->suffix(' Tahun'),
+                                            ]),
+                                        Fieldset::make('')
+                                            ->schema([
+                                                Radio::make('careofdisabled')
+                                                    ->label('Merawat Penyandang Cacat ?')
+                                                    ->default('NO')
+                                                    ->options([
+                                                        'YES' => 'YES',
+                                                        'NO' => 'NO',
+                                                    ])
+                                                    ->inline()
+                                                    ->inlineLabel(false),
+                                                TextInput::make('usiadisable')->label('Usia Disable')->suffix(' Tahun'),
+                                            ]),
+                                        Fieldset::make('')
+                                            ->schema([
+                                                Radio::make('careofbedridden')
+                                                    ->label('Merawat Penyandang Lumpuh ?')
+                                                    ->default('NO')
+                                                    ->options([
+                                                        'YES' => 'YES',
+                                                        'NO' => 'NO',
+                                                    ])
+                                                    ->inline()
+                                                    ->inlineLabel(false),
+                                                TextInput::make('usialumpuh')->label('Usia Penyandang Lumpuh')->suffix(' Tahun'),
+                                            ]),
                                         Radio::make('careofpet')
                                             ->label('Merawat Hewan ?')
                                             ->default('NO')
@@ -519,6 +544,7 @@ class BionipResource extends Resource
                                     ->inline()
                                     ->inlineLabel(false),
                                 Radio::make('berbagikamar')->label('Berbagi Kamar ?')
+                                    ->helperText('Berbagi Kamar Dengan BAYI / ANAK / ORANG TUA ?')
                                     ->default('NO')
                                     ->options([
                                         'YES' => 'YES',
@@ -580,7 +606,9 @@ class BionipResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('foto')->label('')->circular()->size(60),
+                ImageColumn::make('foto')->label('')
+                    ->circular()->size(60)
+                    ->defaultImageUrl(url('/images/user.svg')),
                 TextColumn::make('nama')->label('NAMA')->searchable()
                     ->description(fn (Bionip $record): string => $record->code),
                 TextColumn::make('usia')->label('USIA')->suffix(' THN')->sortable()

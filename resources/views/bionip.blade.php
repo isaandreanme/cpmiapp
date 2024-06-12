@@ -315,7 +315,7 @@
             @if ($record && $record->foto)
             <img class="rounded-lg w-full h-auto" src="/storage/{{ $record->foto }}">
             @else
-            -
+            <img class="rounded-lg w-full h-auto" src="/images/user.svg">
             @endif
 
             <br>
@@ -402,9 +402,9 @@
             <div class="experience-entry p-2 mb-2">
                 <div class="box">
                     <tr>
-                        <td class="text-gray-700 text-sm p-2 uppercase left-align" style="background-color: #f3f3f3;">Previous Duties 過往工作</td>
+                        <td class="text-gray-700 text-sm p-2 uppercase left-align" style="background-color: #f3f3f3;"><b>Previous Duties 過往工作</b></td>
                         <td class="text-gray-700 text-sm p-2 uppercase left-align">
-                            : {{ $experience['nomorpengalaman'] ?? '-' }}
+                            <b> : {{ $experience['nomorpengalaman'] ?? '-' }} </b>
                         </td>
                     </tr>
                     <br>
@@ -466,6 +466,7 @@
                                     <th class="text-gray-700 text-sm p-2 uppercase left-align"></th>
                                     <th class="text-gray-700 text-sm p-2 uppercase">YES 是</th>
                                     <th class="text-gray-700 text-sm p-2 uppercase">NO 否</th>
+                                    <th class="text-gray-700 text-sm p-2 uppercase">Age 年齡</th>
                                 </tr>
                                 @foreach ([
                                 'Care of Babies 照顧嬰兒' => $experience['careofbabies'] ?? '-',
@@ -482,6 +483,23 @@
                                     </td>
                                     <td class="text-gray-700 text-sm p-2 uppercase">
                                         @if ($value == 'NO') X @endif
+                                    </td>
+                                    <td class="text-gray-700 text-sm p-2 ">
+                                        @if ($skill == 'Care of Babies 照顧嬰兒')
+                                        {{ $experience['usiabayi'] ? $experience['usiabayi'] . ' Yrs 歲' : '-' }}
+                                        @elseif ($skill == 'Care of Toddler 照顧幼兒 (1-3)')
+                                        {{ $experience['usiabalita'] ? $experience['usiabalita'] . ' Yrs 歲' : '-' }}
+                                        @elseif ($skill == 'Care of Children 照顧小孩 (4-12)')
+                                        {{ $experience['usiaanak'] ? $experience['usiaanak'] . ' Yrs 歲' : '-' }}
+                                        @elseif ($skill == 'Care of Elderly 照顧長者')
+                                        {{ $experience['usialansia'] ? $experience['usialansia'] . ' Yrs 歲' : '-' }}
+                                        @elseif ($skill == 'Care of Disabled 照顧傷殘')
+                                        {{ $experience['usiadisable'] ? $experience['usiadisable'] . ' Yrs 歲' : '-' }}
+                                        @elseif ($skill == 'Care of Bedridden 照顧卧床人士')
+                                        {{ $experience['usialumpuh'] ? $experience['usialumpuh'] . ' Yrs 歲' : '-' }}
+                                        @else
+                                        {{ $experience['usia'] ? $experience['usia'] . ' Yrs 歲' : '-' }}
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
@@ -522,6 +540,9 @@
             @endif
         </div>
     </div>
+
+
+
 
     <div class="box">
         <h2 class="text-center mb-4 uppercase box-header">Other Question 其他問題</h2>
