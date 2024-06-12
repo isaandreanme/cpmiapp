@@ -109,7 +109,7 @@
                 padding: 0;
             }
 
-            .box1 {
+            .box2 {
                 display: flex;
                 justify-content: space-between;
             }
@@ -296,7 +296,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="text-gray-700 text-sm p-2 uppercase left-align" style="background-color: #f3f3f3;">Phone Number</td>
+                        <td class="text-gray-700 text-sm p-2 uppercase left-align" style="background-color: #f3f3f3;">Phone Number 電話號碼</td>
                         <td class="text-gray-700 text-sm p-2 uppercase left-align">
                             @if ($record && $record->nomor_hp)
                             {{ $record->nomor_hp }}
@@ -372,9 +372,9 @@
                     <th class="text-gray-700 text-sm p-2 uppercase">GOOD 好</th>
                 </tr>
                 @foreach ([
-                '能操英語 Spoken English' => $record->spokenenglish ?? '-',
-                '能操廣東話 Spoken Cantonese' => $record->spokencantonese ?? '-',
-                '能操國語 Spoken Mandarin' => $record->spokenmandarin ?? '-',
+                '英語 English' => $record->spokenenglish ?? '-',
+                '廣東話 Cantonese' => $record->spokencantonese ?? '-',
+                '國語 Mandarin' => $record->spokenmandarin ?? '-',
                 ] as $skill => $value)
                 <tr>
                     <td class="text-gray-700 text-sm p-2 uppercase left-align">{{ $skill }}</td>

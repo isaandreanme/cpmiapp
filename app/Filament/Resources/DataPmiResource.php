@@ -467,7 +467,7 @@ class DataPmiResource extends Resource
                     ->copyable()
                     ->searchable()
                     ->copyMessage('Salin Berhasil')
-                    ->copyMessageDuration(1500),
+                    ->copyMessageDuration(1500)->limit(10),
                 TextColumn::make('Tujuan.nama')->label('NEGARA')->color('primary')
                     ->copyable()
                     ->copyMessage('Salin Berhasil')
